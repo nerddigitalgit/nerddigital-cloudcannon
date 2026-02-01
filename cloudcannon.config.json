@@ -1,6 +1,6 @@
 {
   "source": "websitebygemini/ndwebsite-gemini",
-  "output": "websitebygemini/ndwebsite-gemini/dist",
+  "output": "dist",
   "paths": {
     "uploads": "public/images"
   }
