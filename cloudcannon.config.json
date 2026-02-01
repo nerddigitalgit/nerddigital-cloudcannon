@@ -1,0 +1,6 @@
+{
+  "source": "websitebygemini/ndwebsite-gemini",
+  "paths": {
+    "uploads": "public/images"
+  }
+}
