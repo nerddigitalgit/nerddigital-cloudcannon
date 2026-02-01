@@ -1,0 +1,8 @@
+{
+  "name": "nerddigital-cloudcannon",
+  "private": true,
+  "scripts": {
+    "postinstall": "cd websitebygemini/ndwebsite-gemini && npm install",
+    "build": "cd websitebygemini/ndwebsite-gemini && npm run build"
+  }
+}
