@@ -209,7 +209,7 @@ const Terms: React.FC = () => {
                 <p className="leading-relaxed">
                   <strong>NerdDigital</strong><br />
                   Ontario, Canada<br />
-                  Email: hello@nerddigital.com
+                  Email: contact@nerddigital.com
                 </p>
               </section>
 

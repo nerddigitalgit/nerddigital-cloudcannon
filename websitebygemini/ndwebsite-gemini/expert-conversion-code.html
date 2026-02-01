@@ -370,5 +370,50 @@
       </div>
     </footer>
 
+    <!-- GoHighLevel Form Submission -->
+    <script>
+      const WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/Y1JdoPKbrd3IjmRfSXfY/webhook-trigger/560d0d57-3ae8-4c4d-8519-64a1888ee5d1';
+
+      document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          const email = form.querySelector('input[type="email"]').value;
+          const button = form.querySelector('button[type="submit"]');
+          const originalText = button.textContent;
+
+          button.textContent = 'Sending...';
+          button.disabled = true;
+
+          try {
+            await fetch(WEBHOOK_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email, source: 'expert-conversion-code-landing' }),
+              mode: 'no-cors'
+            });
+
+            // Show success
+            button.textContent = 'Check your inbox!';
+            button.style.backgroundColor = '#00C853';
+            form.querySelector('input[type="email"]').value = '';
+
+            setTimeout(() => {
+              button.textContent = originalText;
+              button.style.backgroundColor = '';
+              button.disabled = false;
+            }, 3000);
+
+          } catch (error) {
+            button.textContent = 'Try again';
+            button.disabled = false;
+            setTimeout(() => {
+              button.textContent = originalText;
+            }, 2000);
+          }
+        });
+      });
+    </script>
+
   </body>
 </html>
