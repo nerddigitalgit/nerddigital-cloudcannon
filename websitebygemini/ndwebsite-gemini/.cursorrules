@@ -1,0 +1,19 @@
+# Git Automation Rules
+- When the user asks to "push changes" or "commit and push", automatically:
+  1. Check git status
+  2. Stage all changes (git add .)
+  3. Commit with a descriptive message based on the changes
+  4. Push to the remote repository
+- Always ask for confirmation before pushing if there are uncommitted changes
+- Generate meaningful commit messages based on file changes
+- If the user says "push changes", "commit and push", or similar, execute the full git workflow automatically
+
+
+
+
+
+
+
+
+
+
