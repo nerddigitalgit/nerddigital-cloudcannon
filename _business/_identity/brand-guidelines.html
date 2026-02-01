@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NerdDigital Brand Guidelines</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --nd-engineering-black: #111111;
+      --nd-paper-white: #F9F9F7;
+      --nd-technical-grey: #E5E5E5;
+      --nd-signal-green: #00C853;
+      --nd-laser-pink: #FF0080;
+      --nd-slate-grey: #666666;
+      --nd-structure-grey: #CCCCCC;
+      --nd-charcoal: #222222;
+      --nd-signal-green-tint: #E6FAF0;
+      --nd-laser-pink-tint: #FFE6F2;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--nd-paper-white);
+      color: var(--nd-engineering-black);
+      line-height: 1.6;
+      font-size: 14px;
+      padding: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+      border-bottom: 2px solid var(--nd-laser-pink);
+      padding-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-top: 40px;
+      margin-bottom: 16px;
+      color: var(--nd-engineering-black);
+      border-left: 4px solid var(--nd-laser-pink);
+      padding-left: 12px;
+    }
+
+    h3 {
+      font-size: 16px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+      color: var(--nd-charcoal);
+    }
+
+    h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: var(--nd-slate-grey);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    p {
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      color: var(--nd-slate-grey);
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 13px;
+    }
+
+    th, td {
+      border: 1px solid var(--nd-technical-grey);
+      padding: 10px 12px;
+      text-align: left;
+    }
+
+    th {
+      background: var(--nd-technical-grey);
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background: #fff;
+    }
+
+    code {
+      background: var(--nd-technical-grey);
+      padding: 2px 6px;
+      border-radius: 2px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 12px;
+    }
+
+    pre {
+      background: var(--nd-charcoal);
+      color: var(--nd-paper-white);
+      padding: 16px;
+      overflow-x: auto;
+      font-size: 12px;
+      line-height: 1.5;
+      margin: 16px 0;
+    }
+
+    blockquote {
+      border-left: 3px solid var(--nd-laser-pink);
+      padding-left: 16px;
+      color: var(--nd-slate-grey);
+      font-style: italic;
+      margin: 16px 0;
+    }
+
+    .highlight {
+      background: var(--nd-laser-pink-tint);
+      padding: 2px 4px;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--nd-technical-grey);
+      margin: 32px 0;
+    }
+
+    .color-swatch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-right: 16px;
+      margin-bottom: 8px;
+    }
+
+    .color-box {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--nd-technical-grey);
+    }
+
+    .color-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 16px 0;
+    }
+
+    .color-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: #fff;
+      border: 1px solid var(--nd-technical-grey);
+      min-width: 200px;
+    }
+
+    .color-card .swatch {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--nd-structure-grey);
+    }
+
+    .color-card .info {
+      font-size: 12px;
+    }
+
+    .color-card .name {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .color-card .hex {
+      font-family: monospace;
+      color: var(--nd-slate-grey);
+    }
+
+    .section-intro {
+      font-style: italic;
+      color: var(--nd-slate-grey);
+      margin-bottom: 20px;
+    }
+
+    @media print {
+      body {
+        padding: 20px;
+        font-size: 11px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      h2 {
+        font-size: 18px;
+        margin-top: 24px;
+        page-break-after: avoid;
+      }
+
+      h3, h4 {
+        page-break-after: avoid;
+      }
+
+      table, pre, .color-grid {
+        page-break-inside: avoid;
+      }
+
+      .page-break {
+        page-break-before: always;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>NerdDigital Brand Guidelines</h1>
+  <p class="subtitle">Complete brand reference for visual identity, voice, and positioning.</p>
+
+  <hr>
+
+  <h2>1. Brand Overview</h2>
+
+  <h3>One-Liner</h3>
+  <p>I help premium coaches build Trust Funnels that turn expertise into consistent $20K+ months - without the burnout, guesswork, or grind.</p>
+
+  <h3>Proof Point</h3>
+  <p><strong>$3Mil+ in client sales generated.</strong></p>
+
+  <h3>Category</h3>
+  <p>Marketing strategist for experts building "Tesla brands" - quality + innovation at accessible-premium pricing.</p>
+
+  <hr>
+
+  <h2>2. The Tesla Brand Philosophy</h2>
+
+  <p>Most business advice forces you to choose:</p>
+
+  <table>
+    <tr>
+      <th>Brand Type</th>
+      <th>Philosophy</th>
+      <th>Problem</th>
+    </tr>
+    <tr>
+      <td><strong>Lamborghini</strong></td>
+      <td>Ultra-premium. Few clients, sky-high prices. Status-driven.</td>
+      <td>Tiny market, constant pressure to justify price</td>
+    </tr>
+    <tr>
+      <td><strong>Toyota</strong></td>
+      <td>Mass market. Reliable but commodity. Competing on price.</td>
+      <td>Thin margins, price-sensitive clients who ghost</td>
+    </tr>
+  </table>
+
+  <p><strong>NerdDigital is a Tesla brand.</strong> Not cheap. Not ultra-luxury.</p>
+  <p><strong>Tesla</strong> = Quality + innovation at accessible-premium pricing.</p>
+  <p>We work with experts who want to build Tesla brands.</p>
+
+  <hr>
+
+  <h2>3. Positioning</h2>
+
+  <h3>What Makes NerdDigital Different</h3>
+  <ul>
+    <li>Tesla brand philosophy (quality + accessibility, not Lamborghini or Toyota)</li>
+    <li>Trust Funnels framework (vs. aggressive launch tactics)</li>
+    <li>Strategy + Tech + Content combined (not just one piece)</li>
+    <li>Narrative intelligence + category design (not just tactics)</li>
+    <li>$3Mil+ in proven client results</li>
+  </ul>
+
+  <h3>The Problem I Solve (in client's words)</h3>
+  <ul>
+    <li>"I've changed my positioning 10 times and still aren't sure"</li>
+    <li>"I have expertise but I'm not monetizing it"</li>
+    <li>"I don't want to charge Lamborghini prices but I'm not a Toyota either"</li>
+    <li>"I want quality and accessibility - why does everyone say I have to choose?"</li>
+  </ul>
+
+  <h3>The Transformation</h3>
+  <p><strong>From:</strong> Endless niche-hopping, inconsistent income, marketing guesswork, unclear brand identity</p>
+  <p><strong>To:</strong> Clear positioning as a Tesla brand, Trust Funnel generating leads, consistent $20K+ months</p>
+
+  <hr>
+
+  <h2>4. Ideal Client</h2>
+
+  <h3>Who I Help</h3>
+  <p>Established experts (coaches, consultants, authors, speakers) who want to build Tesla brands.</p>
+  <ul>
+    <li>Good at what they do but stuck below $20K/month</li>
+    <li>Have unique knowledge but aren't fully tapping their earning potential</li>
+    <li>3+ years of experience</li>
+    <li>Charging $3-8K when they could be at $8-15K with better positioning</li>
+  </ul>
+
+  <h3>The Tesla Brand Filter</h3>
+
+  <p><strong>They DON'T want to be Lamborghini brands:</strong></p>
+  <ul>
+    <li>Not interested in ultra-premium status pricing ($25K+ offers)</li>
+    <li>Not trying to be exclusive for exclusivity's sake</li>
+  </ul>
+
+  <p><strong>They DON'T want to be Toyota brands:</strong></p>
+  <ul>
+    <li>Not interested in race-to-bottom pricing</li>
+    <li>Refuse to sacrifice quality for accessibility</li>
+  </ul>
+
+  <p><strong>They WANT to be Tesla brands:</strong></p>
+  <ul>
+    <li>Great form AND great function</li>
+    <li>Premium quality at accessible prices</li>
+    <li>Innovation-led, not status-led</li>
+  </ul>
+
+  <h3>Who I Don't Work With</h3>
+  <ul>
+    <li><strong>Lamborghini wannabes</strong> - People who just want to charge more without delivering more value</li>
+    <li><strong>Toyota racers</strong> - People who want volume at all costs, willing to sacrifice quality</li>
+    <li><strong>Shiny object chasers</strong> - People who won't finish one thing before starting the next</li>
+    <li><strong>"Do it for me" without engagement</strong> - People who want results without participation</li>
+  </ul>
+
+  <hr>
+
+  <h2>5. Values & Boundaries</h2>
+
+  <h3>What I Stand Against</h3>
+  <ul>
+    <li>Burnout culture</li>
+    <li>Guesswork marketing</li>
+    <li>The grind for grind's sake</li>
+  </ul>
+
+  <hr class="page-break">
+
+  <h2>6. Visual Identity: "Industrial Editorial" System</h2>
+
+  <p><strong>Visual Metaphor:</strong> The Architect's Desk<br>
+  <strong>Core Vibe:</strong> Premium Utility</p>
+
+  <p class="section-intro">We are not "marketing" at you; we are showing you the blueprints.</p>
+
+  <h3>Color Palette: "Paper, Ink, and Laser"</h3>
+  <p>Moving away from "Dark Mode SaaS" (generic) and "Bright White Marketing" (cheap). The base is warm and editorial.</p>
+
+  <h4>The Base (Structure)</h4>
+  <div class="color-grid">
+    <div class="color-card">
+      <div class="swatch" style="background: #F9F9F7;"></div>
+      <div class="info">
+        <div class="name">Paper White</div>
+        <div class="hex">#F9F9F7</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="swatch" style="background: #111111;"></div>
+      <div class="info">
+        <div class="name">Engineering Black</div>
+        <div class="hex">#111111</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="swatch" style="background: #E5E5E5;"></div>
+      <div class="info">
+        <div class="name">Technical Grey</div>
+        <div class="hex">#E5E5E5</div>
+      </div>
+    </div>
+  </div>
+
+  <h4>The Signals (Action)</h4>
+  <div class="color-grid">
+    <div class="color-card">
+      <div class="swatch" style="background: #00C853;"></div>
+      <div class="info">
+        <div class="name">Signal Green</div>
+        <div class="hex">#00C853</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="swatch" style="background: #FF0080;"></div>
+      <div class="info">
+        <div class="name">Laser Pink</div>
+        <div class="hex">#FF0080</div>
+      </div>
+    </div>
+  </div>
+
+  <h4>The Secondary Palette (Functional UI)</h4>
+  <div class="color-grid">
+    <div class="color-card">
+      <div class="swatch" style="background: #E6FAF0;"></div>
+      <div class="info">
+        <div class="name">Signal Green Tint</div>
+        <div class="hex">#E6FAF0</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="swatch" style="background: #FFE6F2;"></div>
+      <div class="info">
+        <div class="name">Laser Pink Tint</div>
+        <div class="hex">#FFE6F2</div>
+      </div>
+    </div>
+  </div>
+
+  <h4>The Tertiary Palette (Structure Expansion)</h4>
+  <div class="color-grid">
+    <div class="color-card">
+      <div class="swatch" style="background: #222222;"></div>
+      <div class="info">
+        <div class="name">Charcoal</div>
+        <div class="hex">#222222</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="swatch" style="background: #666666;"></div>
+      <div class="info">
+        <div class="name">Slate Grey</div>
+        <div class="hex">#666666</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="swatch" style="background: #CCCCCC;"></div>
+      <div class="info">
+        <div class="name">Structure Grey</div>
+        <div class="hex">#CCCCCC</div>
+      </div>
+    </div>
+  </div>
+
+  <h4>The Golden Rule</h4>
+  <p><strong>Never use Pink and Green as background gradients. Use them like ink stamps on a piece of paper.</strong></p>
+
+  <h3>Typography: "Smart & Technical"</h3>
+  <table>
+    <tr>
+      <th>Element</th>
+      <th>Font Type</th>
+      <th>Examples</th>
+      <th>Why</th>
+    </tr>
+    <tr>
+      <td><strong>Headlines (H1, H2)</strong></td>
+      <td>Serif</td>
+      <td>Fraunces, Playfair Display</td>
+      <td>Signals "Authority" and "Magazine Quality"</td>
+    </tr>
+    <tr>
+      <td><strong>Body & UI</strong></td>
+      <td>Sans-Serif / Mono</td>
+      <td>Inter, Geist, Roboto Mono</td>
+      <td>Reads like a manual. High legibility.</td>
+    </tr>
+  </table>
+
+  <h3>UI Components</h3>
+
+  <h4>Buttons</h4>
+  <ul>
+    <li><strong>Shape:</strong> Sharp corners or very tight radius (2px)</li>
+    <li><strong>Primary:</strong> Solid Pink with White text</li>
+    <li><strong>Secondary:</strong> Thin Black Outline with Black text</li>
+  </ul>
+
+  <h4>Containers/Cards</h4>
+  <ul>
+    <li>White background on <code>#F9F9F7</code> page background</li>
+    <li>Thin 1px grey border</li>
+    <li>Zero or very subtle shadow - "flat print" feel</li>
+  </ul>
+
+  <h4>Lead Magnets</h4>
+  <ul>
+    <li><strong>Do not display as "3D Books." Display as Files.</strong></li>
+    <li>Rectangular, thin border, clear title</li>
+    <li>Looks like a dossier</li>
+  </ul>
+
+  <h3>Imagery: "The Markup" Filter</h3>
+  <ol>
+    <li><strong>The Source:</strong> Take a client photo or screenshot</li>
+    <li><strong>The Desaturation:</strong> Lower saturation by 20-30% (slightly matte)</li>
+    <li><strong>The Annotation:</strong> Apply Pink hand-drawn circle or arrow over key element</li>
+    <li><strong>The Context:</strong> Place on clean grid background</li>
+  </ol>
+  <p><strong>Result:</strong> Looks like the expert is analyzing data. Turns a "testimonial" into a "case study."</p>
+
+  <h3>Layout Principles</h3>
+  <ul>
+    <li><strong>Grid Visible:</strong> Use faint grey lines (like graph paper) - emphasizes "Engineering"</li>
+    <li><strong>High Whitespace:</strong> If you think there's too much space, add more. Luxury = space.</li>
+    <li><strong>Asymmetry:</strong> Don't center everything. Align text left (technical standard).</li>
+  </ul>
+
+  <hr class="page-break">
+
+  <h2>7. Brand Voice</h2>
+
+  <h3>Tone</h3>
+  <p>Direct, warm, no-BS, strategic, nerdy-but-accessible</p>
+
+  <h3>Writing Style</h3>
+  <ul>
+    <li>4th-grade reading level</li>
+    <li>Short sentences. Punchy.</li>
+    <li>Max 3-line paragraphs</li>
+    <li>Use specific numbers</li>
+    <li>No guru-speak</li>
+  </ul>
+
+  <h3>Words/Phrases I Use</h3>
+  <ul>
+    <li>Trust Funnels</li>
+    <li>Tesla brand</li>
+    <li>Open Water Leads</li>
+    <li>Trust Bridge</li>
+    <li>Premium Positioning</li>
+  </ul>
+
+  <h3>Words/Phrases I Avoid</h3>
+  <ul>
+    <li>"Guru"</li>
+    <li>"Hustle"</li>
+    <li>"Grind"</li>
+    <li>Vague superlatives</li>
+  </ul>
+
+  <hr>
+
+  <h2>8. Content Pillars</h2>
+
+  <table>
+    <tr>
+      <th>Pillar</th>
+      <th>Tagline</th>
+      <th>Theme</th>
+    </tr>
+    <tr>
+      <td><strong>FOCUS</strong></td>
+      <td>"Finish before you chase"</td>
+      <td>Stop shiny object syndrome. Nail fundamentals.</td>
+    </tr>
+    <tr>
+      <td><strong>STORY & CATEGORY</strong></td>
+      <td>"Be different, not better"</td>
+      <td>Narrative intelligence + category design.</td>
+    </tr>
+    <tr>
+      <td><strong>SIMPLE SYSTEMS</strong></td>
+      <td>"The boring funnel that works"</td>
+      <td>Email course -> Calls -> Newsletter. That's it.</td>
+    </tr>
+    <tr>
+      <td><strong>TEST EVERYTHING</strong></td>
+      <td>"Stop guessing, start knowing"</td>
+      <td>Rapid testing with low budgets. Validate before you build.</td>
+    </tr>
+  </table>
+
+  <hr>
+
+  <h2>9. AI Prompt Guide</h2>
+
+  <p>Use this when generating backgrounds or headers:</p>
+
+  <pre>A website hero background in the style of minimal editorial tech design.
+A clean, off-white paper texture background.
+Overlay of very faint, thin technical grid lines.
+In the center, a simple, flat wireframe diagram of a marketing funnel.
+The diagram is drawn in thin black ink.
+There is one single specific element highlighted with a neon hot pink marker circle.
+No shading, no 3D, no gradients.
+High definition, aesthetic, architectural blueprint style.
+--ar 16:9</pre>
+
+  <hr>
+
+  <h2>Quick Reference</h2>
+
+  <table>
+    <tr>
+      <th>Element</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td>Background</td>
+      <td><code>#F9F9F7</code> (Paper White)</td>
+    </tr>
+    <tr>
+      <td>Text</td>
+      <td><code>#111111</code> (Engineering Black)</td>
+    </tr>
+    <tr>
+      <td>Borders</td>
+      <td><code>#E5E5E5</code> (Technical Grey)</td>
+    </tr>
+    <tr>
+      <td>Primary Action</td>
+      <td><code>#FF0080</code> (Laser Pink)</td>
+    </tr>
+    <tr>
+      <td>Success/Status</td>
+      <td><code>#00C853</code> (Signal Green)</td>
+    </tr>
+    <tr>
+      <td>Pink Tint (UI)</td>
+      <td><code>#FFE6F2</code> (Laser Pink Tint)</td>
+    </tr>
+    <tr>
+      <td>Green Tint (UI)</td>
+      <td><code>#E6FAF0</code> (Signal Green Tint)</td>
+    </tr>
+    <tr>
+      <td>Secondary Text</td>
+      <td><code>#666666</code> (Slate Grey)</td>
+    </tr>
+    <tr>
+      <td>Subtle Borders</td>
+      <td><code>#CCCCCC</code> (Structure Grey)</td>
+    </tr>
+    <tr>
+      <td>Dark Sections</td>
+      <td><code>#222222</code> (Charcoal)</td>
+    </tr>
+    <tr>
+      <td>Headline Font</td>
+      <td>Serif (Fraunces, Playfair)</td>
+    </tr>
+    <tr>
+      <td>Body Font</td>
+      <td>Sans/Mono (Inter, Geist)</td>
+    </tr>
+  </table>
+
+</body>
+</html>

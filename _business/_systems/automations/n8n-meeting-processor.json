@@ -1,0 +1,143 @@
+{
+  "name": "Meeting Transcript Processor",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "meeting-transcript",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [250, 300],
+      "webhookId": "meeting-transcript"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract data from Fathom webhook payload\n// Data is nested inside 'body'\nconst input = $input.first().json;\nconst data = input.body || input; // Handle both nested and flat structures\n\n// Meeting metadata\nconst meetingName = data.meeting_title || data.title || 'meeting';\nconst meetingDate = data.created_at?.split('T')[0] || new Date().toISOString().split('T')[0];\nconst recordingUrl = data.share_url || data.url || '';\nconst recordingId = data.recording_id || '';\n\n// Get attendees from calendar_invitees\nlet attendees = '';\nif (data.calendar_invitees && Array.isArray(data.calendar_invitees)) {\n  attendees = data.calendar_invitees.map(i => i.name).join(', ');\n}\n\n// Get recorded by\nconst recordedBy = data.recorded_by?.name || '';\n\n// Format transcript from array\nlet formattedTranscript = '';\nif (data.transcript && Array.isArray(data.transcript)) {\n  formattedTranscript = data.transcript\n    .map(entry => `[${entry.timestamp}] ${entry.speaker?.display_name || 'Speaker'}: ${entry.text}`)\n    .join('\\n');\n}\n\n// Get summary\nconst summary = data.default_summary?.markdown_formatted || '';\n\n// Get action items\nlet actionItems = '';\nif (data.action_items && Array.isArray(data.action_items) && data.action_items.length > 0) {\n  actionItems = data.action_items\n    .map(item => `- [ ] ${item.description}${item.assignee ? ' (@' + item.assignee.name + ')' : ''}`)\n    .join('\\n');\n} else {\n  actionItems = '- [ ] No action items captured';\n}\n\n// Clean name for filename\nconst cleanName = meetingName\n  .toLowerCase()\n  .replace(/[^a-z0-9]+/g, '-')\n  .replace(/^-|-$/g, '')\n  .substring(0, 50);\n\nconst filename = `${meetingDate}-${cleanName}.md`;\n\nreturn {\n  transcript: formattedTranscript,\n  meetingName,\n  meetingDate,\n  attendees,\n  recordedBy,\n  recordingUrl,\n  recordingId,\n  summary,\n  actionItems,\n  filename,\n  transcriptLength: formattedTranscript.length\n};"
+      },
+      "id": "prepare-data",
+      "name": "Prepare Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "YOUR_ANTHROPIC_API_KEY"
+            },
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"claude-3-haiku-20240307\",\n  \"max_tokens\": 4096,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Process this meeting transcript into structured notes for a business intelligence system.\\n\\n**Meeting:** {{ $json.meetingName }}\\n**Date:** {{ $json.meetingDate }}\\n**Attendees:** {{ $json.attendees }}\\n**Recorded by:** {{ $json.recordedBy }}\\n**Recording:** {{ $json.recordingUrl }}\\n\\n**Fathom Summary:**\\n{{ $json.summary }}\\n\\n**Fathom Action Items:**\\n{{ $json.actionItems }}\\n\\n---\\n\\nCreate structured notes in this exact markdown format:\\n\\n# Meeting: {{ $json.meetingName }} - {{ $json.meetingDate }}\\n\\n## Context\\n- **Type:** [Identify: Discovery / Proposal / Kickoff / Check-in / Internal / Other]\\n- **Recording:** {{ $json.recordingUrl }}\\n- **Attendees:** {{ $json.attendees }}\\n\\n## Key Takeaways\\n[3-5 bullet points of the most important insights from this meeting]\\n\\n## Customer Pain Points\\n[Extract their exact words in quotes - what problems, frustrations, or challenges did they mention? If none, write 'None identified']\\n\\n## Objections / Hesitations\\n[Any concerns, pushback, pricing hesitation, or uncertainty they expressed. If none, write 'None identified']\\n\\n## Quotes Worth Saving\\n[Verbatim quotes that could be useful for testimonials, content, or sales materials. If none notable, write 'None identified']\\n\\n## Action Items\\n{{ $json.actionItems }}\\n\\n## Follow-up Notes\\n[What should happen next? Any deadlines mentioned?]\\n\\n---\\n\\n**Full Transcript:**\\n{{ $json.transcript }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "id": "claude-api",
+      "name": "Claude Haiku",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract markdown from Claude response\nconst response = $input.first().json;\nconst markdown = response.content[0].text;\nconst filename = $('Prepare Data').first().json.filename;\n\n// Convert to binary for Google Drive upload\nconst binaryData = Buffer.from(markdown, 'utf-8');\n\nreturn {\n  json: { filename, markdown },\n  binary: {\n    data: {\n      data: binaryData.toString('base64'),\n      mimeType: 'text/markdown',\n      fileName: filename\n    }\n  }\n};"
+      },
+      "id": "format-output",
+      "name": "Format Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "folderId": {
+          "__rl": true,
+          "value": "REPLACE_WITH_YOUR_FOLDER_ID",
+          "mode": "id"
+        },
+        "name": "={{ $json.filename }}",
+        "driveId": {
+          "__rl": true,
+          "value": "myDrive",
+          "mode": "list"
+        },
+        "inputDataFieldName": "data",
+        "options": {}
+      },
+      "id": "google-drive",
+      "name": "Save to Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [1050, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Prepare Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Data": {
+      "main": [
+        [
+          {
+            "node": "Claude Haiku",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude Haiku": {
+      "main": [
+        [
+          {
+            "node": "Format Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Output": {
+      "main": [
+        [
+          {
+            "node": "Save to Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}

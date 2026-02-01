@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(_business/**)",
+      "Write(_business/_intel/**)",
+      "Write(_business/_learning/**)"
+    ]
+  },
+  "commands": {
+    "meeting": {
+      "model": "haiku",
+      "description": "Process meeting transcripts (uses Haiku for cost efficiency)"
+    }
+  }
+}
