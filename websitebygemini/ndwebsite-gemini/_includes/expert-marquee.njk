@@ -1,0 +1,37 @@
+{# Expert Marquee Component #}
+<section class="py-6 bg-white border-y border-nerd-border overflow-hidden">
+  <div class="relative">
+    <p class="text-center text-xs font-mono uppercase tracking-widest text-nerd-muted mb-4">
+      Trusted by World-Class Experts
+    </p>
+    <div class="flex animate-marquee">
+      {% for expert in experts %}
+      <div class="flex-shrink-0 px-4">
+        <div class="flex items-center gap-3">
+          {% if expert.image %}
+          <img src="{{ expert.image }}" alt="{{ expert.name }}" class="w-10 h-10 rounded-full object-cover border border-nerd-border">
+          {% endif %}
+          <div>
+            <p class="text-sm font-medium text-nerd-dark">{{ expert.name }}</p>
+            <p class="text-xs text-nerd-muted">{{ expert.role }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {# Duplicate for seamless loop #}
+      {% for expert in experts %}
+      <div class="flex-shrink-0 px-4">
+        <div class="flex items-center gap-3">
+          {% if expert.image %}
+          <img src="{{ expert.image }}" alt="{{ expert.name }}" class="w-10 h-10 rounded-full object-cover border border-nerd-border">
+          {% endif %}
+          <div>
+            <p class="text-sm font-medium text-nerd-dark">{{ expert.name }}</p>
+            <p class="text-xs text-nerd-muted">{{ expert.role }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

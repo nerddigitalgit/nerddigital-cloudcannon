@@ -1,0 +1,311 @@
+---
+# LANDING PAGE TEMPLATE FOR LEAD MAGNETS
+# Duplicate this file and rename it for each new lead magnet
+# All fields below are editable in CloudCannon
+
+layout: base.njk
+title: "[Lead Magnet Name] | Free Resource"
+description: "Description for SEO - what the lead magnet offers."
+
+# ===================================
+# HERO SECTION
+# ===================================
+hero_eyebrow: "Free [Type: Guide/Course/Checklist]"
+hero_title_line1: "Your Lead Magnet"
+hero_title_line2: "Title Here"
+hero_subtitle: "The compelling promise of what they'll learn or achieve"
+hero_image: "/images/your-lead-magnet-image.png"
+hero_cta_text: "Get Free Access"
+
+# ===================================
+# TRUSTED BY SECTION (Optional)
+# ===================================
+show_trusted_by: true
+trusted_by_title: "Trusted by World-Class Experts"
+trusted_experts:
+  - name: "Expert Name"
+    image: "/images/expert-photo.jpg"
+  # Add more experts as needed
+
+# ===================================
+# PROBLEM SECTION
+# ===================================
+problem_title: "The problem your audience faces"
+problem_intro:
+  - "First pain point statement."
+  - "Second pain point statement."
+  - "Third pain point statement."
+problem_transition: "But here's what's really happening:"
+problem_points:
+  - "Specific symptom of the problem"
+  - "Another symptom"
+  - "The root cause"
+problem_solution_intro: "The solution isn't what you think."
+problem_solution: "It's [your unique approach]."
+
+# ===================================
+# WHAT'S INSIDE SECTION
+# ===================================
+course_title: "What's Inside"
+course_subtitle: "A brief description of what they'll get."
+course_image: "/images/lead-magnet-cover.png"
+course_days:
+  - day: "Part 1"
+    title: "First Topic"
+    description: "What they'll learn"
+  - day: "Part 2"
+    title: "Second Topic"
+    description: "What they'll learn"
+  - day: "Part 3"
+    title: "Third Topic"
+    description: "What they'll learn"
+
+# ===================================
+# TARGET AUDIENCE SECTION
+# ===================================
+audience_title: "This is for you if..."
+audience_points:
+  - "First qualifier - who should get this"
+  - "Second qualifier"
+  - "Third qualifier"
+  - "Fourth qualifier"
+
+# ===================================
+# TESTIMONIALS SECTION
+# ===================================
+testimonials_eyebrow: "What Others Say"
+testimonials:
+  - quote: "Testimonial text here with the key result highlighted."
+    name: "Person Name"
+    role: "Their Title/Company"
+    image: "/images/testimonial-photo.jpg"
+
+# ===================================
+# FINAL CTA SECTION
+# ===================================
+final_cta_title: "Ready to [achieve outcome]?"
+final_cta_subtitle: "One line about the offer."
+final_cta_button: "Get Free Access"
+final_cta_note: "Free. No credit card required."
+
+# ===================================
+# FORM SETTINGS
+# ===================================
+form_source: "lead-magnet-name-landing"
+
+# Quick Benefits (shown under form)
+quick_benefits:
+  - "Benefit 1"
+  - "Benefit 2"
+  - "Benefit 3"
+---
+
+{# ========================================= #}
+{# HERO SECTION #}
+{# ========================================= #}
+<section class="px-4 pt-6 pb-4 md:px-6 md:pt-16 md:pb-12 bg-white">
+  <div class="max-w-2xl mx-auto text-center">
+
+    <p class="hidden md:block font-mono text-xs tracking-widest text-nerd-muted uppercase mb-3" data-editable="text" data-prop="hero_eyebrow">
+      {{ hero_eyebrow }}
+    </p>
+
+    <h1 class="text-3xl md:text-5xl lg:text-6xl leading-[1.1] mb-2 md:mb-4">
+      <span data-editable="text" data-prop="hero_title_line1">{{ hero_title_line1 }}</span><br>
+      <span data-editable="text" data-prop="hero_title_line2">{{ hero_title_line2 }}</span>
+    </h1>
+
+    <p class="text-lg md:text-2xl text-nerd-dark font-medium mb-4 md:mb-6 max-w-lg mx-auto" data-editable="text" data-prop="hero_subtitle">
+      {{ hero_subtitle }}
+    </p>
+
+    {% if hero_image %}
+    <div class="flex justify-center mb-4 md:mb-6">
+      <img
+        src="{{ hero_image }}"
+        alt="{{ hero_title_line1 }} {{ hero_title_line2 }}"
+        class="w-[70%] md:w-[50%] h-auto border border-nerd-dark"
+        data-editable="image"
+        data-prop-src="hero_image"
+      >
+    </div>
+    {% endif %}
+
+    <form class="max-w-md mx-auto mb-3 md:mb-5" data-webhook data-source="{{ form_source }}">
+      <div class="flex flex-col sm:flex-row gap-2 md:gap-3">
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+          class="input-clean flex-1 px-3 py-2.5 md:px-4 md:py-3 text-sm md:text-base"
+        >
+        <button type="submit" class="btn-primary px-5 py-2.5 md:px-6 md:py-3 text-xs md:text-sm whitespace-nowrap" data-editable="text" data-prop="hero_cta_text">
+          {{ hero_cta_text }}
+        </button>
+      </div>
+    </form>
+
+    <div class="hidden md:flex flex-wrap justify-center gap-x-5 gap-y-1 text-sm text-nerd-muted">
+      {% for benefit in quick_benefits %}
+      <span>&#10003; {{ benefit }}</span>
+      {% endfor %}
+    </div>
+
+  </div>
+
+  {% if show_trusted_by %}
+  <div class="mt-4 md:mt-10 pt-4 md:pt-8 border-t border-nerd-border/30">
+    <p class="text-center text-[10px] md:text-xs font-mono uppercase tracking-widest text-nerd-muted mb-2 md:mb-5" data-editable="text" data-prop="trusted_by_title">
+      {{ trusted_by_title }}
+    </p>
+    <div class="flex justify-center flex-wrap gap-2 md:gap-4">
+      {% for expert in trusted_experts %}
+      <div class="text-center">
+        {% if expert.image %}
+        <img src="{{ expert.image }}" alt="{{ expert.name }}" class="w-8 h-8 md:w-12 md:h-12 rounded-full object-cover border border-nerd-border mx-auto">
+        {% endif %}
+        <p class="text-[9px] md:text-xs font-medium mt-0.5 hidden md:block">{{ expert.name }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</section>
+
+{# ========================================= #}
+{# PROBLEM SECTION #}
+{# ========================================= #}
+<section class="px-6 py-12 bg-nerd-dark">
+  <div class="max-w-2xl mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl mb-8 text-white" data-editable="text" data-prop="problem_title">
+      {{ problem_title }}
+    </h2>
+    <div class="space-y-4 text-lg text-gray-300">
+      {% for line in problem_intro %}
+      <p>{{ line }}</p>
+      {% endfor %}
+      <p class="pt-4" data-editable="text" data-prop="problem_transition">{{ problem_transition }}</p>
+      <ul class="space-y-2 pt-2">
+        {% for point in problem_points %}
+        <li>{{ point }}</li>
+        {% endfor %}
+      </ul>
+      <p class="pt-4" data-editable="text" data-prop="problem_solution_intro">{{ problem_solution_intro }}</p>
+      <p class="text-white font-semibold" data-editable="text" data-prop="problem_solution">{{ problem_solution }}</p>
+    </div>
+  </div>
+</section>
+
+{# ========================================= #}
+{# WHAT'S INSIDE SECTION #}
+{# ========================================= #}
+<section class="px-6 py-10 bg-white border-y border-nerd-border">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-3xl md:text-4xl text-center mb-3" data-editable="text" data-prop="course_title">{{ course_title }}</h2>
+    <p class="text-center text-nerd-muted mb-6" data-editable="text" data-prop="course_subtitle">{{ course_subtitle }}</p>
+
+    {% if course_image %}
+    <div class="flex justify-center mb-8">
+      <img
+        src="{{ course_image }}"
+        alt="{{ course_title }}"
+        class="w-[180px] md:w-[220px] h-auto border-2 border-nerd-dark"
+        data-editable="image"
+        data-prop-src="course_image"
+      >
+    </div>
+    {% endif %}
+
+    <div class="space-y-3">
+      {% for day in course_days %}
+      <div class="card-editorial p-4 flex gap-4 items-start">
+        <div class="flex-shrink-0 w-14 text-center"><span class="day-badge">{{ day.day }}</span></div>
+        <div>
+          <h3 class="text-lg mb-1">{{ day.title }}</h3>
+          <p class="text-nerd-muted text-sm">{{ day.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ========================================= #}
+{# TARGET AUDIENCE SECTION #}
+{# ========================================= #}
+<section class="px-6 py-10">
+  <div class="max-w-xl mx-auto">
+    <div class="bg-white border border-nerd-border rounded p-6 md:p-8">
+      <h2 class="text-3xl md:text-4xl text-center mb-6" data-editable="text" data-prop="audience_title">{{ audience_title }}</h2>
+      <div class="space-y-3 text-base">
+        {% for point in audience_points %}
+        <div class="flex gap-3 items-start">
+          <span class="text-nerd-green text-lg font-bold">&#10003;</span>
+          <p>{{ point }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ========================================= #}
+{# TESTIMONIALS SECTION #}
+{# ========================================= #}
+<section class="px-6 py-10 bg-white border-y border-nerd-border">
+  <div class="max-w-3xl mx-auto">
+    <p class="text-center text-xs font-mono uppercase tracking-widest text-nerd-muted mb-6" data-editable="text" data-prop="testimonials_eyebrow">{{ testimonials_eyebrow }}</p>
+    <div class="grid md:grid-cols-2 gap-6">
+      {% for testimonial in testimonials %}
+      <div class="card-editorial p-5">
+        <p class="text-base mb-4 leading-relaxed">"{{ testimonial.quote }}"</p>
+        <div class="flex items-center gap-3">
+          {% if testimonial.image %}
+          <img src="{{ testimonial.image }}" alt="{{ testimonial.name }}" class="w-10 h-10 rounded-full object-cover">
+          {% endif %}
+          <div>
+            <p class="font-semibold text-sm">{{ testimonial.name }}</p>
+            <p class="text-xs text-nerd-muted">{{ testimonial.role }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ========================================= #}
+{# FINAL CTA SECTION #}
+{# ========================================= #}
+<section class="px-6 py-12 bg-nerd-dark text-white">
+  <div class="max-w-2xl mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl mb-4 text-white" data-editable="text" data-prop="final_cta_title">{{ final_cta_title }}</h2>
+    <p class="text-lg text-gray-400 mb-6 max-w-lg mx-auto" data-editable="text" data-prop="final_cta_subtitle">{{ final_cta_subtitle }}</p>
+
+    <form class="max-w-md mx-auto mb-4" data-webhook data-source="{{ form_source }}">
+      <div class="flex flex-col sm:flex-row gap-3">
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+          class="flex-1 px-4 py-3 text-base text-nerd-dark bg-white border-2 border-white rounded-sm focus:outline-none"
+        >
+        <button type="submit" class="px-6 py-3 text-sm whitespace-nowrap font-semibold uppercase tracking-wide bg-white text-nerd-dark rounded-sm transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5" style="box-shadow: 4px 4px 0px #FF0080;" data-editable="text" data-prop="final_cta_button">
+          {{ final_cta_button }}
+        </button>
+      </div>
+    </form>
+    <p class="text-sm text-gray-500" data-editable="text" data-prop="final_cta_note">{{ final_cta_note }}</p>
+  </div>
+</section>
+
+{# ========================================= #}
+{# FOOTER #}
+{# ========================================= #}
+<footer class="px-6 py-6 border-t border-nerd-border">
+  <div class="max-w-3xl mx-auto text-center">
+    <p class="text-sm text-nerd-muted">&copy; {{ site.copyright_year }} {{ site.title }}. All rights reserved.</p>
+  </div>
+</footer>

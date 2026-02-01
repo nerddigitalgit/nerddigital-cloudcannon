@@ -1,8 +1,13 @@
 {
   "name": "nerddigital-cloudcannon",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "postinstall": "cd websitebygemini/ndwebsite-gemini && npm install",
-    "build": "cd websitebygemini/ndwebsite-gemini && npm run build && cp -r dist ../../dist"
+    "start": "cd websitebygemini/ndwebsite-gemini && npx @11ty/eleventy --serve",
+    "build": "cd websitebygemini/ndwebsite-gemini && npx @11ty/eleventy && cp -r _site ../../_site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
   }
 }

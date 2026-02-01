@@ -1,0 +1,135 @@
+---
+layout: base.njk
+title: "Privacy Policy - NerdDigital"
+description: "NerdDigital Privacy Policy - How we collect, use, and protect your information."
+
+last_updated: "February 1, 2026"
+contact_email: "contact@nerddigital.com"
+
+# Privacy Policy Content - Edit these sections in CloudCannon
+intro_text: "NerdDigital (\"we,\" \"our,\" or \"us\") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services."
+intro_jurisdiction: "NerdDigital is a business registered and operated in the Province of Ontario, Canada. By using our website and services, you consent to the practices described in this policy."
+
+sections:
+  - title: "2. Information We Collect"
+    content: |
+      We may collect information about you in various ways, including:
+
+      **Personal Information**
+      When you voluntarily provide it to us, such as when you fill out a contact form, book a call, or sign up for our email list. This may include:
+      - Name
+      - Email address
+      - Phone number
+      - Business information
+      - Any other information you choose to provide
+
+      **Automatically Collected Information**
+      When you visit our website, we may automatically collect certain information, including:
+      - IP address
+      - Browser type and version
+      - Operating system
+      - Referring website
+      - Pages visited and time spent on pages
+      - Click patterns and interactions
+      - Device information
+
+  - title: "3. Cookies and Tracking Technologies"
+    content: |
+      We use cookies and similar tracking technologies to collect and track information about your visit to our website.
+
+      **Types of Cookies We Use:**
+      - **Essential Cookies:** Required for the website to function properly.
+      - **Analytics Cookies:** Help us understand how visitors interact with our website.
+      - **Marketing Cookies:** Used to track visitors across websites to display relevant advertisements.
+
+      **Meta (Facebook) Pixel**
+      We use Meta (Facebook) Pixel to track conversions from Meta ads, optimize ads based on collected data, build targeted audiences for future ads, and remarket to people who have already taken action on our website.
+
+  - title: "4. How We Use Your Information"
+    content: |
+      We use the information we collect to:
+      - Provide, maintain, and improve our services
+      - Respond to your inquiries and fulfill your requests
+      - Send you marketing communications (with your consent)
+      - Analyze website usage and optimize our marketing
+      - Deliver targeted advertising through Meta and other platforms
+      - Protect against fraudulent or illegal activity
+      - Comply with legal obligations
+
+  - title: "5. Information Sharing and Disclosure"
+    content: |
+      **We do not sell, rent, or trade your personal information to third parties.**
+
+      We may share your information with:
+      - **Service Providers:** Third-party vendors who assist us in operating our website and conducting our business.
+      - **Advertising Partners:** Such as Meta, for the purpose of delivering targeted advertisements.
+      - **Legal Requirements:** When required by law or to protect our rights.
+
+  - title: "6. Your Rights and Choices"
+    content: |
+      Under Canadian privacy law, including PIPEDA, you have the right to:
+      - Access the personal information we hold about you
+      - Request correction of inaccurate information
+      - Withdraw consent for certain processing activities
+      - Request deletion of your personal information
+      - Opt-out of marketing communications
+
+  - title: "7. Contact Us"
+    content: |
+      If you have any questions about this Privacy Policy, please contact us at contact@nerddigital.com
+---
+
+{# Header #}
+<div class="bg-white border-b border-nerd-border">
+  <div class="container mx-auto px-6 py-4">
+    <a href="/" class="inline-flex items-center gap-2 text-nerd-muted hover:text-nerd-dark transition-colors font-sans">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+      Back to Home
+    </a>
+  </div>
+</div>
+
+{# Content #}
+<div class="container mx-auto px-6 py-16">
+  <div class="max-w-3xl mx-auto">
+    <h1 class="text-4xl md:text-5xl text-nerd-dark mb-4 font-sans font-semibold" data-editable="text" data-prop="title">
+      Privacy Policy
+    </h1>
+    <p class="text-nerd-muted font-sans mb-12">Last updated: <span data-editable="text" data-prop="last_updated">{{ last_updated }}</span></p>
+
+    <div class="prose prose-lg max-w-none">
+      <div class="space-y-8 text-nerd-dark font-sans">
+
+        <section>
+          <h2 class="text-2xl font-semibold mb-4">1. Introduction</h2>
+          <p class="mb-4 leading-relaxed" data-editable="text" data-prop="intro_text">
+            {{ intro_text }}
+          </p>
+          <p class="leading-relaxed" data-editable="text" data-prop="intro_jurisdiction">
+            {{ intro_jurisdiction }}
+          </p>
+        </section>
+
+        {% for section in sections %}
+        <section>
+          <h2 class="text-2xl font-semibold mb-4">{{ section.title }}</h2>
+          <div class="leading-relaxed prose" data-editable="block">
+            {{ section.content | safe }}
+          </div>
+        </section>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{# Footer #}
+<footer class="py-8 bg-nerd-dark">
+  <div class="container mx-auto px-6 text-center">
+    <img src="{{ site.logo.footer }}" alt="{{ site.title }}" class="h-4 mx-auto mb-4 opacity-80">
+    <p class="text-sm text-gray-500 font-sans">
+      &copy; Copyright {{ site.copyright_year }} {{ site.title }}
+    </p>
+  </div>
+</footer>

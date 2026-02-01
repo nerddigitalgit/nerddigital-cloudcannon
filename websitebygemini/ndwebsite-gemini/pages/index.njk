@@ -1,0 +1,220 @@
+---
+layout: base.njk
+title: "NerdDigital - Marketing for Domain Experts"
+description: "Marketing for domain experts building businesses around their expertise."
+
+# Hero Section
+hero_title_line1: "You're the expert."
+hero_title_line2: "Your marketing should show it."
+hero_subtitle: "Marketing for domain experts building businesses around their expertise."
+hero_cta_text: "Learn to Convert Leads Into Clients"
+hero_cta_url: "#lead-magnet"
+
+# Problem Statement
+problem_statement: "Most domain experts under $20K/month struggle to market themselves. NerdDigital gives you the marketing infrastructure of a 7-figure business—through a simple done-for-you subscription. No hiring required."
+
+# Experts Marquee
+experts:
+  - name: "Khe Hy"
+    role: "Founder, Radreads"
+    image: "/images/Khe-Hy-Coach.jpg"
+  - name: "Robbie Crabtree"
+    role: "Founder, Performative Speaking"
+    image: "/images/Robbie-Crabtree-Coach.jpg"
+  - name: "Ted Seides"
+    role: "Founder, Capital Allocators"
+    image: "/images/Ted-Seides-Coach.jpg"
+  - name: "Michael Margolis"
+    role: "CEO, Storied"
+    image: "/images/Michael-Margolis-Author.jpg"
+  - name: "Lorraine Lee"
+    role: "Speaker & Creator"
+    image: "/images/Lorraine-Lee-Speaker.jpg"
+  - name: "Mayo Oshin"
+    role: "Author & Creator"
+    image: "/images/Mayo-Oshin-Author.jpg"
+  - name: "Behi Shafiei"
+    role: "Founder, Wealth Strategist"
+    image: "/images/Behi-Shafiei-Founder-Wealth-Strategist.jpg"
+
+# Logos
+trust_logos:
+  - src: "/images/logos/Bankless.png"
+    alt: "Bankless"
+  - src: "/images/logos/BobaGuys.png"
+    alt: "Boba Guys"
+  - src: "/images/logos/Fanexpo.png"
+    alt: "FanExpo"
+  - src: "/images/logos/Immi.png"
+    alt: "Immi"
+  - src: "/images/logos/kettleandfirelogo.png"
+    alt: "Kettle & Fire"
+  - src: "/images/logos/Remedy.png"
+    alt: "Remedy"
+
+# Testimonials Section
+testimonials_eyebrow: "Client Results"
+testimonials:
+  - quote: "The business has now doubled its monthly revenue with a clear path to far larger numbers."
+    name: "Robbie Crabtree"
+    role: "Founder, Performative Speaking"
+    image: "/images/Robbie-Crabtree-Coach.jpg"
+  - quote: "We've seen a clear ROI and a massive uptick in student engagement."
+    name: "Khe Hy"
+    role: "Founder, Radreads"
+    image: "/images/Khe-Hy-Coach.jpg"
+
+# Lead Magnet Section
+leadmagnet_eyebrow: "Free 5-Day Email Course"
+leadmagnet_title: "The Expert Conversion Code"
+leadmagnet_subtitle: "5 days to convert more leads into high-paying clients"
+leadmagnet_image: "/images/conversion-codegraphic.png"
+leadmagnet_cta: "Get the Free Course"
+leadmagnet_benefits:
+  - "5 proven frameworks"
+  - "One email per day"
+  - "100% free"
+---
+
+{% include "nav.njk" %}
+
+<main>
+  {# Hero Section #}
+  <section class="relative pt-28 pb-8 md:pt-32 md:pb-10 overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+      <div class="absolute inset-0 bg-nerd-light"></div>
+    </div>
+
+    <div class="container mx-auto px-6 text-center">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-[2.28rem] md:text-[3.42rem] text-nerd-dark mb-6 leading-[1.15] font-sans font-semibold">
+          <span data-editable="text" data-prop="hero_title_line1">{{ hero_title_line1 }}</span><br>
+          <span class="font-serif italic font-semibold" data-editable="text" data-prop="hero_title_line2">{{ hero_title_line2 }}</span>
+        </h1>
+
+        <p class="max-w-2xl mx-auto text-base md:text-lg text-nerd-muted mb-8 leading-relaxed font-sans" data-editable="text" data-prop="hero_subtitle">
+          {{ hero_subtitle }}
+        </p>
+
+        <a href="{{ hero_cta_url }}" class="btn-primary px-8 py-4 inline-flex items-center justify-center" style="font-size: 0.6rem;" data-editable="text" data-prop="hero_cta_text">
+          {{ hero_cta_text }}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {# Expert Marquee #}
+  <section class="py-6 bg-white border-y border-nerd-border overflow-hidden">
+    <div class="relative">
+      <p class="text-center text-xs font-mono uppercase tracking-widest text-nerd-muted mb-4">
+        Trusted by World-Class Experts
+      </p>
+      <div class="flex justify-center flex-wrap gap-4 md:gap-6 px-6">
+        {% for expert in experts %}
+        <div class="flex items-center gap-3">
+          {% if expert.image %}
+          <img src="{{ expert.image }}" alt="{{ expert.name }}" class="w-10 h-10 rounded-full object-cover border border-nerd-border" data-editable="image" data-prop-src="experts[{{ loop.index0 }}].image">
+          {% endif %}
+          <div>
+            <p class="text-sm font-medium text-nerd-dark">{{ expert.name }}</p>
+            <p class="text-xs text-nerd-muted">{{ expert.role }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# Problem Statement #}
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-6">
+      <p class="max-w-3xl mx-auto text-center text-lg md:text-xl lg:text-2xl leading-relaxed text-nerd-dark font-sans" data-editable="text" data-prop="problem_statement">
+        {{ problem_statement }}
+      </p>
+    </div>
+  </section>
+
+  {# Logo Marquee #}
+  <section class="py-8 bg-nerd-light border-y border-nerd-border">
+    <div class="container mx-auto px-6">
+      <div class="flex justify-center items-center flex-wrap gap-8 md:gap-12">
+        {% for logo in trust_logos %}
+        <img src="{{ logo.src }}" alt="{{ logo.alt }}" class="h-6 md:h-8 w-auto object-contain logo-dark" data-editable="image" data-prop-src="trust_logos[{{ loop.index0 }}].src">
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# Testimonials #}
+  <section class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <p class="text-center text-xs font-mono uppercase tracking-widest text-nerd-muted mb-8" data-editable="text" data-prop="testimonials_eyebrow">
+        {{ testimonials_eyebrow }}
+      </p>
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {% for testimonial in testimonials %}
+        <div class="card-editorial p-6">
+          <p class="text-lg mb-4 leading-relaxed">"{{ testimonial.quote }}"</p>
+          <div class="flex items-center gap-3">
+            {% if testimonial.image %}
+            <img src="{{ testimonial.image }}" alt="{{ testimonial.name }}" class="w-12 h-12 rounded-full object-cover">
+            {% endif %}
+            <div>
+              <p class="font-semibold text-sm">{{ testimonial.name }}</p>
+              <p class="text-xs text-nerd-muted">{{ testimonial.role }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# Lead Magnet Section #}
+  <section id="lead-magnet" class="py-16 md:py-20 bg-nerd-dark">
+    <div class="container mx-auto px-6">
+      <div class="max-w-2xl mx-auto text-center">
+        <p class="font-mono text-xs tracking-widest text-gray-400 uppercase mb-3" data-editable="text" data-prop="leadmagnet_eyebrow">
+          {{ leadmagnet_eyebrow }}
+        </p>
+
+        <h2 class="text-3xl md:text-4xl text-white mb-3" data-editable="text" data-prop="leadmagnet_title">
+          {{ leadmagnet_title }}
+        </h2>
+
+        <p class="text-lg md:text-xl text-gray-300 font-medium mb-6" data-editable="text" data-prop="leadmagnet_subtitle">
+          {{ leadmagnet_subtitle }}
+        </p>
+
+        {% if leadmagnet_image %}
+        <div class="flex justify-center mb-6">
+          <img src="{{ leadmagnet_image }}" alt="{{ leadmagnet_title }}" class="w-[200px] md:w-[250px] h-auto border border-white/20" data-editable="image" data-prop-src="leadmagnet_image">
+        </div>
+        {% endif %}
+
+        <form class="max-w-md mx-auto mb-4" data-webhook data-source="homepage-lead-magnet">
+          <div class="flex flex-col sm:flex-row gap-3">
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+              class="flex-1 px-4 py-3 text-base text-nerd-dark bg-white border-2 border-white rounded-sm focus:outline-none"
+            >
+            <button type="submit" class="btn-primary-light px-6 py-3 text-sm whitespace-nowrap" data-editable="text" data-prop="leadmagnet_cta">
+              {{ leadmagnet_cta }}
+            </button>
+          </div>
+        </form>
+
+        <div class="flex flex-wrap justify-center gap-x-4 gap-y-1 text-sm text-gray-400">
+          {% for benefit in leadmagnet_benefits %}
+          <span>{{ benefit }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% include "footer.njk" %}

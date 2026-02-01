@@ -4,8 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy",
+    "dev:react": "vite",
+    "build:react": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -14,6 +16,7 @@
     "react": "^19.2.3"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
     "typescript": "~5.8.2",

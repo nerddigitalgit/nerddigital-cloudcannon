@@ -1,0 +1,131 @@
+---
+layout: base.njk
+title: "Terms and Conditions - NerdDigital"
+description: "NerdDigital Terms and Conditions - Rules governing use of our website and services."
+
+last_updated: "February 1, 2026"
+contact_email: "contact@nerddigital.com"
+
+# Terms Content
+intro_text: "These Terms and Conditions (\"Terms\") govern your access to and use of the NerdDigital website and services. By accessing or using our website, you agree to be bound by these Terms and our Privacy Policy."
+intro_jurisdiction: "NerdDigital is a business registered and operated in the Province of Ontario, Canada. These Terms are governed by the laws of Ontario and the federal laws of Canada applicable therein."
+
+sections:
+  - title: "2. Services"
+    content: |
+      NerdDigital provides marketing consulting, strategy, and implementation services for coaches, consultants, course creators, and other domain experts. Our Services may include but are not limited to:
+      - Marketing strategy and consulting
+      - Funnel design and optimization
+      - Email marketing
+      - Paid advertising management
+      - Lead generation systems
+      - Educational content and courses
+
+  - title: "3. User Responsibilities"
+    content: |
+      By using our website and Services, you agree to:
+      - Provide accurate and complete information when requested
+      - Maintain the confidentiality of any account credentials
+      - Use our website and Services only for lawful purposes
+      - Not attempt to interfere with or disrupt our website or servers
+      - Not reproduce, duplicate, or exploit any portion of our website without permission
+      - Comply with all applicable laws and regulations
+
+  - title: "4. Intellectual Property"
+    content: |
+      All content on this website, including text, graphics, logos, images, videos, and software, is the property of NerdDigital or its content suppliers and is protected by Canadian and international copyright laws.
+
+      You may not reproduce, distribute, modify, create derivative works of, publicly display, or otherwise use any content from our website without our prior written consent, except for personal, non-commercial use.
+
+  - title: "5. Free Content and Courses"
+    content: |
+      We may offer free content, including email courses, guides, and other educational materials. By signing up for free content:
+      - You consent to receive emails from NerdDigital related to the content you requested
+      - You may also receive marketing communications, which you can opt out of at any time
+      - The content is provided for educational purposes only and does not constitute professional advice
+      - Results may vary and are not guaranteed
+
+  - title: "6. Disclaimer of Results"
+    content: |
+      **Results are not guaranteed.** While we strive to provide valuable strategies and services, individual results will vary based on numerous factors including but not limited to:
+      - Your existing business and audience
+      - Market conditions
+      - Your implementation of recommendations
+      - Your industry and niche
+      - External factors beyond our control
+
+      Testimonials and case studies on our website represent individual results and are not guarantees of future performance.
+
+  - title: "7. Limitation of Liability"
+    content: |
+      To the fullest extent permitted by applicable law, NerdDigital and its owners, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to:
+      - Loss of profits, revenue, or business
+      - Loss of data or information
+      - Business interruption
+      - Any other pecuniary loss
+
+      Our total liability for any claims arising from your use of our website or Services shall not exceed the amount you paid us, if any, in the twelve (12) months preceding the claim.
+
+  - title: "8. Governing Law"
+    content: |
+      These Terms shall be governed by and construed in accordance with the laws of the Province of Ontario and the federal laws of Canada applicable therein, without regard to conflict of law principles. Any disputes arising from these Terms or your use of our website shall be subject to the exclusive jurisdiction of the courts of Ontario, Canada.
+
+  - title: "9. Contact Us"
+    content: |
+      If you have any questions about these Terms, please contact us at contact@nerddigital.com
+---
+
+{# Header #}
+<div class="bg-white border-b border-nerd-border">
+  <div class="container mx-auto px-6 py-4">
+    <a href="/" class="inline-flex items-center gap-2 text-nerd-muted hover:text-nerd-dark transition-colors font-sans">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+      Back to Home
+    </a>
+  </div>
+</div>
+
+{# Content #}
+<div class="container mx-auto px-6 py-16">
+  <div class="max-w-3xl mx-auto">
+    <h1 class="text-4xl md:text-5xl text-nerd-dark mb-4 font-sans font-semibold" data-editable="text" data-prop="title">
+      Terms and Conditions
+    </h1>
+    <p class="text-nerd-muted font-sans mb-12">Last updated: <span data-editable="text" data-prop="last_updated">{{ last_updated }}</span></p>
+
+    <div class="prose prose-lg max-w-none">
+      <div class="space-y-8 text-nerd-dark font-sans">
+
+        <section>
+          <h2 class="text-2xl font-semibold mb-4">1. Agreement to Terms</h2>
+          <p class="mb-4 leading-relaxed" data-editable="text" data-prop="intro_text">
+            {{ intro_text }}
+          </p>
+          <p class="leading-relaxed" data-editable="text" data-prop="intro_jurisdiction">
+            {{ intro_jurisdiction }}
+          </p>
+        </section>
+
+        {% for section in sections %}
+        <section>
+          <h2 class="text-2xl font-semibold mb-4">{{ section.title }}</h2>
+          <div class="leading-relaxed prose" data-editable="block">
+            {{ section.content | safe }}
+          </div>
+        </section>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{# Footer #}
+<footer class="py-8 bg-nerd-dark">
+  <div class="container mx-auto px-6 text-center">
+    <img src="{{ site.logo.footer }}" alt="{{ site.title }}" class="h-4 mx-auto mb-4 opacity-80">
+    <p class="text-sm text-gray-500 font-sans">
+      &copy; Copyright {{ site.copyright_year }} {{ site.title }}
+    </p>
+  </div>
+</footer>

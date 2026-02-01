@@ -1,0 +1,10 @@
+{
+  "items": [
+    { "label": "Home", "url": "/" },
+    { "label": "About", "url": "/about/" }
+  ],
+  "cta": {
+    "label": "Get Started",
+    "url": "/about/#calendar"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "title": "NerdDigital",
+  "tagline": "Marketing for Domain Experts",
+  "description": "Marketing for domain experts building businesses around their expertise.",
+  "logo": {
+    "header": "/images/nerddigital-logo-250.png",
+    "footer": "/images/nerd-digital-logo-white.png"
+  },
+  "calendar_url": "https://bookme.name/embed/widget/4230/o95jvQ0Atoyv4cB17uATURsXsGByPNMQu3bgvEbCMtj9tGwltWAfXMBgjnWr",
+  "webhook_url": "https://services.leadconnectorhq.com/hooks/Y1JdoPKbrd3IjmRfSXfY/webhook-trigger/560d0d57-3ae8-4c4d-8519-64a1888ee5d1",
+  "contact_email": "contact@nerddigital.com",
+  "copyright_year": "2025"
+}
