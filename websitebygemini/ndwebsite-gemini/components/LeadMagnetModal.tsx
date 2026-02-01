@@ -65,13 +65,19 @@ const LeadMagnetModal: React.FC<LeadMagnetModalProps> = ({ isOpen, onClose }) =>
     };
 
     try {
+      // Use URLSearchParams for no-cors compatibility
+      const formData = new URLSearchParams();
+      Object.entries(payload).forEach(([key, value]) => {
+        formData.append(key, value);
+      });
+
       await fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify(payload),
-        mode: 'no-cors' // Webhook may not return CORS headers
+        body: formData.toString(),
+        mode: 'no-cors'
       });
 
       console.log('Lead submitted:', payload);
