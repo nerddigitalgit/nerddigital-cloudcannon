@@ -3,5 +3,15 @@
   "output": "dist",
   "paths": {
     "uploads": "public/images"
+  },
+  "collections_config": {
+    "pages": {
+      "path": "",
+      "output": true,
+      "icon": "wysiwyg",
+      "name": "Pages",
+      "glob": ["index.html", "expert-conversion-code.html", "expert-conversion-code-v2.html"],
+      "_enabled_editors": ["visual", "data", "source"]
+    }
   }
 }
