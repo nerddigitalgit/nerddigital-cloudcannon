@@ -193,9 +193,8 @@ const About: React.FC = () => {
       <ExpertMarquee />
 
       {/* Results Stats Section - Superside style */}
-      <section className="py-16 md:py-24 bg-nerd-dark relative">
-        <div className="absolute inset-0" style={{ backgroundImage: gridTextureLight }}></div>
-        <div className="container mx-auto px-6 relative z-10">
+      <section className="py-16 md:py-24 bg-nerd-dark">
+        <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
             {/* Section Header */}
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
