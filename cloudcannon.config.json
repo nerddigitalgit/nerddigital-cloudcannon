@@ -17,7 +17,7 @@
     "data": "_data",
     "layouts": "_layouts",
     "includes": "_includes",
-    "static": "assets",
+    "static": "",
     "uploads": "images"
   },
   "_editables": {
