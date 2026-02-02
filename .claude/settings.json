@@ -1,9 +1,18 @@
 {
   "permissions": {
     "allow": [
-      "Read(_business/**)",
-      "Write(_business/_intel/**)",
-      "Write(_business/_learning/**)"
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "WebFetch",
+      "WebSearch",
+      "Bash(*)"
+    ],
+    "deny": [
+      "Bash(rm -rf /)",
+      "Bash(sudo rm -rf *)"
     ]
   },
   "commands": {
