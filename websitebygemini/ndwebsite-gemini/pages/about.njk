@@ -242,12 +242,12 @@ trust_logos:
   <div class="container mx-auto px-6 relative z-10">
     <div class="max-w-4xl mx-auto text-center">
       <h1 class="text-[1.71rem] md:text-[2.57rem] text-nerd-dark mb-6 leading-[1.15] font-sans font-semibold">
-        {{ hero_title_start }} <span class="font-serif italic whitespace-nowrap">{{ hero_title_highlight }}</span> {{ hero_title_end }}
+        <span data-editable="text" data-prop="hero_title_start">{{ hero_title_start }}</span> <span class="font-serif italic whitespace-nowrap" data-editable="text" data-prop="hero_title_highlight">{{ hero_title_highlight }}</span> <span data-editable="text" data-prop="hero_title_end">{{ hero_title_end }}</span>
       </h1>
-      <p class="max-w-2xl mx-auto text-base md:text-lg text-nerd-muted mb-8 leading-relaxed font-sans">
+      <p class="max-w-2xl mx-auto text-base md:text-lg text-nerd-muted mb-8 leading-relaxed font-sans" data-editable="text" data-prop="hero_subtitle">
         {{ hero_subtitle }}
       </p>
-      <button class="btn-primary px-8 py-4 inline-flex items-center justify-center mb-10" style="font-size: 0.6rem;" onclick="document.getElementById('calendar').scrollIntoView({behavior: 'smooth'})">
+      <button class="btn-primary px-8 py-4 inline-flex items-center justify-center mb-10" style="font-size: 0.6rem;" onclick="document.getElementById('calendar').scrollIntoView({behavior: 'smooth'})" data-editable="text" data-prop="hero_cta">
         {{ hero_cta }}
       </button>
       <div class="max-w-2xl mx-auto aspect-video rounded-lg overflow-hidden border border-nerd-border">
@@ -260,7 +260,7 @@ trust_logos:
 {# Expert Marquee #}
 <div class="w-full py-8 bg-nerd-light overflow-hidden">
   <div class="container mx-auto px-6 mb-8 text-center">
-    <p class="font-mono uppercase tracking-widest text-nerd-muted" style="font-size: 0.6rem;">{{ experts_title }}</p>
+    <p class="font-mono uppercase tracking-widest text-nerd-muted" style="font-size: 0.6rem;" data-editable="text" data-prop="experts_title">{{ experts_title }}</p>
   </div>
   <div class="relative w-full overflow-hidden">
     <div class="absolute top-0 left-0 w-[115px] h-full bg-gradient-to-r from-nerd-light to-transparent z-10 hidden md:block"></div>
@@ -298,10 +298,10 @@ trust_logos:
         {# Main Header + Stats #}
         <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
-            <p class="text-xs uppercase tracking-widest text-nerd-muted mb-3 font-sans">{{ stats_eyebrow }}</p>
-            <h2 class="text-3xl md:text-4xl text-nerd-dark font-sans font-semibold">{{ stats_title }} <span class="font-serif italic">{{ stats_title_italic }}</span></h2>
+            <p class="text-xs uppercase tracking-widest text-nerd-muted mb-3 font-sans" data-editable="text" data-prop="stats_eyebrow">{{ stats_eyebrow }}</p>
+            <h2 class="text-3xl md:text-4xl text-nerd-dark font-sans font-semibold"><span data-editable="text" data-prop="stats_title">{{ stats_title }}</span> <span class="font-serif italic" data-editable="text" data-prop="stats_title_italic">{{ stats_title_italic }}</span></h2>
           </div>
-          <p class="text-nerd-muted font-sans text-sm leading-relaxed max-w-sm">{{ stats_subtitle }}</p>
+          <p class="text-nerd-muted font-sans text-sm leading-relaxed max-w-sm" data-editable="text" data-prop="stats_subtitle">{{ stats_subtitle }}</p>
         </div>
         <div class="grid md:grid-cols-3 gap-12 md:gap-8 mb-16">
           {% for stat in stats %}
@@ -315,7 +315,7 @@ trust_logos:
         {# Pain Points as Sub-section #}
         <div class="pt-4">
           <div class="max-w-2xl">
-            <h3 class="text-xl md:text-2xl text-nerd-dark mb-8 font-sans font-semibold">{{ pain_title }} <span class="font-serif italic">{{ pain_title_italic }}</span></h3>
+            <h3 class="text-xl md:text-2xl text-nerd-dark mb-8 font-sans font-semibold"><span data-editable="text" data-prop="pain_title">{{ pain_title }}</span> <span class="font-serif italic" data-editable="text" data-prop="pain_title_italic">{{ pain_title_italic }}</span></h3>
             <div class="space-y-4">
               {% for point in pain_points %}
               <div class="flex items-start gap-4">
@@ -324,7 +324,7 @@ trust_logos:
               </div>
               {% endfor %}
             </div>
-            <p class="text-lg text-nerd-dark font-sans mt-8">{{ pain_closing }} <span class="font-serif italic">{{ pain_closing_italic }}</span></p>
+            <p class="text-lg text-nerd-dark font-sans mt-8"><span data-editable="text" data-prop="pain_closing">{{ pain_closing }}</span> <span class="font-serif italic" data-editable="text" data-prop="pain_closing_italic">{{ pain_closing_italic }}</span></p>
           </div>
         </div>
       </div>
@@ -337,8 +337,8 @@ trust_logos:
   <div class="container mx-auto px-6 relative z-10">
     <div class="max-w-3xl mx-auto">
       <div class="text-center mb-8">
-        <h2 class="text-3xl md:text-4xl text-nerd-dark mb-2 font-sans font-semibold">{{ calendar_title }} <span class="font-serif italic">{{ calendar_title_italic }}</span></h2>
-        <p class="text-nerd-muted font-sans">{{ calendar_subtitle }}</p>
+        <h2 class="text-3xl md:text-4xl text-nerd-dark mb-2 font-sans font-semibold"><span data-editable="text" data-prop="calendar_title">{{ calendar_title }}</span> <span class="font-serif italic" data-editable="text" data-prop="calendar_title_italic">{{ calendar_title_italic }}</span></h2>
+        <p class="text-nerd-muted font-sans" data-editable="text" data-prop="calendar_subtitle">{{ calendar_subtitle }}</p>
       </div>
       <div class="bg-nerd-light border border-nerd-border overflow-hidden rounded-lg">
         <iframe src="{{ calendar_url }}" class="h-[650px]" title="Book Your Free Call" style="width: 100%; border: none; overflow: hidden;"></iframe>
@@ -351,7 +351,7 @@ trust_logos:
 <section class="py-16 bg-nerd-cream relative">
   <div class="container mx-auto px-6 relative z-10">
     <div class="max-w-3xl mx-auto">
-      <h2 class="text-3xl md:text-4xl text-nerd-dark mb-12 text-center font-sans font-bold">{{ case_studies_title }} <span class="font-serif italic">{{ case_studies_title_italic }}</span></h2>
+      <h2 class="text-3xl md:text-4xl text-nerd-dark mb-12 text-center font-sans font-bold"><span data-editable="text" data-prop="case_studies_title">{{ case_studies_title }}</span> <span class="font-serif italic" data-editable="text" data-prop="case_studies_title_italic">{{ case_studies_title_italic }}</span></h2>
       <div class="space-y-16">
         {% for study in case_studies %}
         <div class="bg-white rounded-lg overflow-hidden border border-nerd-border">
@@ -372,7 +372,7 @@ trust_logos:
       </div>
 
       {# What Clients Say #}
-      <h3 class="text-2xl md:text-3xl text-nerd-dark mb-12 mt-20 text-center font-sans font-bold">{{ testimonials_title }} <span class="font-serif italic">{{ testimonials_title_italic }}</span></h3>
+      <h3 class="text-2xl md:text-3xl text-nerd-dark mb-12 mt-20 text-center font-sans font-bold"><span data-editable="text" data-prop="testimonials_title">{{ testimonials_title }}</span> <span class="font-serif italic" data-editable="text" data-prop="testimonials_title_italic">{{ testimonials_title_italic }}</span></h3>
       <div class="space-y-16">
         {% for testimonial in testimonials %}
         <div class="bg-white rounded-lg overflow-hidden border border-nerd-border">
@@ -401,13 +401,13 @@ trust_logos:
 <section class="py-16 bg-cream-grid relative">
   <div class="container mx-auto px-6 relative z-10">
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl md:text-4xl text-nerd-dark mb-10 text-center font-sans font-semibold">{{ about_title }} <span class="font-serif italic">{{ about_title_italic }}</span></h2>
+      <h2 class="text-3xl md:text-4xl text-nerd-dark mb-10 text-center font-sans font-semibold"><span data-editable="text" data-prop="about_title">{{ about_title }}</span> <span class="font-serif italic" data-editable="text" data-prop="about_title_italic">{{ about_title_italic }}</span></h2>
 
       {# Mobile: Headshot first, centered and 50% width #}
       <div class="md:hidden flex justify-center mb-8">
         <div class="w-1/2">
           <div class="bg-white border border-nerd-border p-3 rounded-lg">
-            <img src="{{ about_image }}" alt="Marcio" class="w-full aspect-square object-cover rounded">
+            <img src="{{ about_image }}" alt="Marcio" class="w-full aspect-square object-cover rounded" data-editable="image" data-prop-src="about_image">
           </div>
         </div>
       </div>
@@ -420,7 +420,7 @@ trust_logos:
         </div>
         <div class="hidden md:block">
           <div class="bg-white border border-nerd-border p-4 mb-4 rounded-lg">
-            <img src="{{ about_image }}" alt="Marcio" class="w-full aspect-square object-cover rounded">
+            <img src="{{ about_image }}" alt="Marcio" class="w-full aspect-square object-cover rounded" data-editable="image" data-prop-src="about_image">
           </div>
           <div>
             <p class="text-xs text-nerd-muted mb-3 text-center uppercase tracking-wider">Trusted by</p>
@@ -442,7 +442,7 @@ trust_logos:
 <section class="py-16 bg-white relative">
   <div class="container mx-auto px-6 relative z-10">
     <div class="max-w-2xl mx-auto">
-      <h2 class="text-3xl md:text-4xl text-nerd-dark mb-8 text-center font-sans font-semibold">{{ faq_title }} {{ faq_title_italic }}</h2>
+      <h2 class="text-3xl md:text-4xl text-nerd-dark mb-8 text-center font-sans font-semibold"><span data-editable="text" data-prop="faq_title">{{ faq_title }}</span> <span class="font-serif italic" data-editable="text" data-prop="faq_title_italic">{{ faq_title_italic }}</span></h2>
       <div class="bg-white border border-nerd-border rounded-lg">
         {% for item in faq_items %}
         <div class="faq-item border-b border-nerd-border last:border-b-0">
@@ -465,7 +465,7 @@ trust_logos:
   <div class="container mx-auto px-6 text-center relative z-10">
     <div class="max-w-xl mx-auto">
       <h2 class="text-2xl md:text-3xl text-nerd-dark mb-4 font-sans font-semibold">
-        {{ final_cta }} <span class="font-serif italic">{{ final_cta_italic }}</span>
+        <span data-editable="text" data-prop="final_cta">{{ final_cta }}</span> <span class="font-serif italic" data-editable="text" data-prop="final_cta_italic">{{ final_cta_italic }}</span>
       </h2>
       <button class="btn-primary px-8 py-4 inline-flex items-center justify-center mt-6" style="font-size: 0.9375rem;" onclick="document.getElementById('calendar').scrollIntoView({behavior: 'smooth'})">GET STARTED</button>
     </div>
