@@ -1,8 +1,52 @@
 // NerdDigital Main JavaScript
 
-// Form submission handler for GoHighLevel webhook
 document.addEventListener('DOMContentLoaded', function() {
-  const WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/Y1JdoPKbrd3IjmRfSXfY/webhook-trigger/560d0d57-3ae8-4c4d-8519-64a1888ee5d1';
+  // Nav border on scroll
+  const mainNav = document.getElementById('main-nav');
+  if (mainNav) {
+    const updateNavBorder = () => {
+      if (window.scrollY > 10) {
+        mainNav.classList.add('border-b', 'border-nerd-border/50');
+      } else {
+        mainNav.classList.remove('border-b', 'border-nerd-border/50');
+      }
+    };
+    window.addEventListener('scroll', updateNavBorder, { passive: true });
+    updateNavBorder(); // Initial check
+  }
+  // Mobile Menu Toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+
+      if (isOpen) {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      } else {
+        mobileMenu.classList.remove('hidden');
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      }
+    });
+
+    // Close menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      });
+    });
+  }
+
+  // Form submission handler for GoHighLevel webhook
+  const WEBHOOK_URL = document.body.dataset.webhookUrl || 'https://services.leadconnectorhq.com/hooks/Y1JdoPKbrd3IjmRfSXfY/webhook-trigger/560d0d57-3ae8-4c4d-8519-64a1888ee5d1';
 
   document.querySelectorAll('form[data-webhook]').forEach(form => {
     form.addEventListener('submit', async (e) => {

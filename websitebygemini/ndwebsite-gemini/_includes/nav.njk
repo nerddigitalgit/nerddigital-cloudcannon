@@ -1,5 +1,5 @@
 {# Navigation Component #}
-<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-6">
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-nerd-light/80 backdrop-blur-md py-4">
   <div class="container mx-auto px-6 flex items-center justify-between">
     <div class="flex items-center gap-2">
       <a href="/">
@@ -9,12 +9,25 @@
     <div class="hidden md:flex items-center gap-8">
       <a href="/about/" class="btn-primary px-6 py-2.5" style="font-size: 0.6rem;">Work with Us</a>
     </div>
-    <button class="md:hidden text-nerd-dark" id="mobile-menu-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <button class="md:hidden text-nerd-dark p-2" id="mobile-menu-btn" aria-label="Open menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="menu-icon">
         <line x1="4" x2="20" y1="12" y2="12"></line>
         <line x1="4" x2="20" y1="6" y2="6"></line>
         <line x1="4" x2="20" y1="18" y2="18"></line>
       </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="close-icon" class="hidden">
+        <line x1="18" x2="6" y1="6" y2="18"></line>
+        <line x1="6" x2="18" y1="6" y2="18"></line>
+      </svg>
     </button>
+  </div>
+
+  {# Mobile Menu #}
+  <div id="mobile-menu" class="hidden md:hidden bg-nerd-light/95 backdrop-blur-md border-t border-nerd-border/50">
+    <div class="container mx-auto px-6 py-6 flex flex-col gap-4">
+      <a href="/" class="text-nerd-dark font-semibold py-2">Home</a>
+      <a href="/about/" class="text-nerd-dark font-semibold py-2">About</a>
+      <a href="/about/" class="btn-primary px-6 py-3 text-center mt-2" style="font-size: 0.6rem;">Work with Us</a>
+    </div>
   </div>
 </nav>

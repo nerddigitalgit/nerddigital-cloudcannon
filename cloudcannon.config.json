@@ -18,7 +18,7 @@
     "layouts": "_layouts",
     "includes": "_includes",
     "static": "assets",
-    "uploads": "assets/uploads"
+    "uploads": "images"
   },
   "_editables": {
     "text": {
@@ -149,6 +149,80 @@
     "quick_benefits": {
       "type": "array",
       "label": "Quick Benefits"
+    },
+    "webhook_url": {
+      "type": "text",
+      "label": "Form Webhook URL",
+      "comment": "GoHighLevel webhook URL for form submissions"
+    },
+    "calendar_url": {
+      "type": "text",
+      "label": "Calendar Embed URL",
+      "comment": "Booking calendar embed URL"
+    },
+    "logo": {
+      "type": "object",
+      "label": "Site Logos"
+    },
+    "contact_email": {
+      "type": "email",
+      "label": "Contact Email"
+    },
+    "copyright_year": {
+      "type": "text",
+      "label": "Copyright Year"
+    },
+    "problem_title": {
+      "type": "text",
+      "label": "Problem Section Title"
+    },
+    "problem_intro": {
+      "type": "array",
+      "label": "Problem Introduction Lines"
+    },
+    "problem_transition": {
+      "type": "text",
+      "label": "Problem Transition Text"
+    },
+    "problem_points": {
+      "type": "array",
+      "label": "Problem Points"
+    },
+    "problem_solution_intro": {
+      "type": "text",
+      "label": "Solution Introduction"
+    },
+    "problem_solution": {
+      "type": "text",
+      "label": "Solution Text"
+    },
+    "final_cta_title": {
+      "type": "text",
+      "label": "Final CTA Title"
+    },
+    "final_cta_subtitle": {
+      "type": "text",
+      "label": "Final CTA Subtitle"
+    },
+    "final_cta_button": {
+      "type": "text",
+      "label": "Final CTA Button Text"
+    },
+    "audience_title": {
+      "type": "text",
+      "label": "Audience Section Title"
+    },
+    "audience_points": {
+      "type": "array",
+      "label": "Audience Points"
+    },
+    "trusted_experts": {
+      "type": "array",
+      "label": "Trusted Experts"
+    },
+    "case_studies": {
+      "type": "array",
+      "label": "Case Studies"
     }
   }
 }
