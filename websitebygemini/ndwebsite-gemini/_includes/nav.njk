@@ -1,20 +1,20 @@
 {# Navigation Component #}
-<nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-nerd-border">
-  <div class="container mx-auto px-6 py-4">
-    <div class="flex items-center justify-between">
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-6">
+  <div class="container mx-auto px-6 flex items-center justify-between">
+    <div class="flex items-center gap-2">
       <a href="/">
-        <img src="{{ site.logo.header }}" alt="{{ site.title }}" class="h-5">
+        <img src="{{ site.logo.header }}" alt="{{ site.title }}" class="h-4 md:h-5">
       </a>
-      <div class="flex items-center gap-6">
-        {% for item in navigation.items %}
-        <a href="{{ item.url }}" class="text-sm font-medium text-nerd-muted hover:text-nerd-dark transition-colors font-sans hidden md:block">
-          {{ item.label }}
-        </a>
-        {% endfor %}
-        <a href="{{ navigation.cta.url }}" class="btn-primary px-5 py-2.5 text-xs">
-          {{ navigation.cta.label }}
-        </a>
-      </div>
     </div>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="/about/" class="btn-primary px-6 py-2.5" style="font-size: 0.6rem;">Work with Us</a>
+    </div>
+    <button class="md:hidden text-nerd-dark" id="mobile-menu-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="4" x2="20" y1="12" y2="12"></line>
+        <line x1="4" x2="20" y1="6" y2="6"></line>
+        <line x1="4" x2="20" y1="18" y2="18"></line>
+      </svg>
+    </button>
   </div>
 </nav>
