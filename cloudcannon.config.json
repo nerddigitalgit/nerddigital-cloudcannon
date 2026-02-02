@@ -223,6 +223,150 @@
     "case_studies": {
       "type": "array",
       "label": "Case Studies"
+    },
+    "hero_title_start": {
+      "type": "text",
+      "label": "Hero Title Start"
+    },
+    "hero_title_highlight": {
+      "type": "text",
+      "label": "Hero Title Highlight (italic)"
+    },
+    "hero_title_end": {
+      "type": "text",
+      "label": "Hero Title End"
+    },
+    "hero_cta": {
+      "type": "text",
+      "label": "Hero CTA Button Text"
+    },
+    "hero_video": {
+      "type": "text",
+      "label": "Hero Video Embed URL"
+    },
+    "experts_title": {
+      "type": "text",
+      "label": "Experts Section Title"
+    },
+    "stats_eyebrow": {
+      "type": "text",
+      "label": "Stats Eyebrow Text"
+    },
+    "stats_title": {
+      "type": "text",
+      "label": "Stats Title"
+    },
+    "stats_title_italic": {
+      "type": "text",
+      "label": "Stats Title (italic part)"
+    },
+    "stats_subtitle": {
+      "type": "textarea",
+      "label": "Stats Subtitle"
+    },
+    "pain_title": {
+      "type": "text",
+      "label": "Pain Points Title"
+    },
+    "pain_title_italic": {
+      "type": "text",
+      "label": "Pain Points Title (italic part)"
+    },
+    "pain_closing": {
+      "type": "text",
+      "label": "Pain Points Closing"
+    },
+    "pain_closing_italic": {
+      "type": "text",
+      "label": "Pain Points Closing (italic part)"
+    },
+    "calendar_title": {
+      "type": "text",
+      "label": "Calendar Section Title"
+    },
+    "calendar_title_italic": {
+      "type": "text",
+      "label": "Calendar Title (italic part)"
+    },
+    "calendar_subtitle": {
+      "type": "text",
+      "label": "Calendar Subtitle"
+    },
+    "case_studies_title": {
+      "type": "text",
+      "label": "Case Studies Title"
+    },
+    "case_studies_title_italic": {
+      "type": "text",
+      "label": "Case Studies Title (italic part)"
+    },
+    "testimonials_title": {
+      "type": "text",
+      "label": "Testimonials Title"
+    },
+    "testimonials_title_italic": {
+      "type": "text",
+      "label": "Testimonials Title (italic part)"
+    },
+    "testimonials_eyebrow": {
+      "type": "text",
+      "label": "Testimonials Eyebrow"
+    },
+    "about_title": {
+      "type": "text",
+      "label": "About Section Title"
+    },
+    "about_title_italic": {
+      "type": "text",
+      "label": "About Title (italic part)"
+    },
+    "about_image": {
+      "type": "image",
+      "label": "About Profile Image"
+    },
+    "about_content": {
+      "type": "markdown",
+      "label": "About Content"
+    },
+    "faq_title": {
+      "type": "text",
+      "label": "FAQ Title"
+    },
+    "faq_title_italic": {
+      "type": "text",
+      "label": "FAQ Title (italic part)"
+    },
+    "final_cta": {
+      "type": "text",
+      "label": "Final CTA Text"
+    },
+    "final_cta_italic": {
+      "type": "text",
+      "label": "Final CTA (italic part)"
+    },
+    "final_cta_note": {
+      "type": "text",
+      "label": "Final CTA Note"
+    },
+    "trust_logos": {
+      "type": "array",
+      "label": "Trust Logos"
+    },
+    "course_title": {
+      "type": "text",
+      "label": "Course Section Title"
+    },
+    "course_subtitle": {
+      "type": "text",
+      "label": "Course Section Subtitle"
+    },
+    "course_image": {
+      "type": "image",
+      "label": "Course Image"
+    },
+    "trusted_by_title": {
+      "type": "text",
+      "label": "Trusted By Section Title"
     }
   }
 }
