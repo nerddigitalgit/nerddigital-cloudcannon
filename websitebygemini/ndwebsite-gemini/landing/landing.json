@@ -1,0 +1,3 @@
+{
+  "permalink": "/learn/{{ page.fileSlug }}/index.html"
+}

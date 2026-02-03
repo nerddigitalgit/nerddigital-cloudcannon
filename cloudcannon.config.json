@@ -25,7 +25,7 @@
       "disable_file_actions": false
     },
     "landing_pages": {
-      "path": "learn",
+      "path": "landing",
       "name": "Landing Pages",
       "icon": "rocket_launch",
       "url": "/learn/[slug]/",
@@ -52,14 +52,6 @@
       "icon": "settings",
       "disable_url": false,
       "description": "Global site configuration and content",
-      "disable_add": false,
-      "disable_add_folder": false,
-      "disable_file_actions": false
-    },
-    "landing": {
-      "path": "landing",
-      "icon": "padding",
-      "disable_url": false,
       "disable_add": false,
       "disable_add_folder": false,
       "disable_file_actions": false
