@@ -1,18 +1,5 @@
 {
   "source": "websitebygemini/ndwebsite-gemini",
-  "output": "_site",
-  "timezone": "America/Toronto",
-  "base_url": "/",
-  "_generator": {
-    "name": "eleventy",
-    "version": "2.0",
-    "metadata": {
-      "markdown": "markdown-it",
-      "markdown_options": {
-        "html": true
-      }
-    }
-  },
   "paths": {
     "data": "_data",
     "layouts": "_layouts",
@@ -20,54 +7,442 @@
     "static": "",
     "uploads": "images"
   },
-  "_editables": {
-    "text": {
-      "italic": true,
-      "bold": true,
-      "link": true
-    },
-    "block": {
-      "format": "p h2 h3",
-      "italic": true,
-      "bold": true,
-      "link": true,
-      "bulletedlist": true,
-      "numberedlist": true
-    }
-  },
   "collections_config": {
     "pages": {
       "path": "pages",
-      "url": "/[slug]/",
-      "output": true,
-      "icon": "wysiwyg",
       "name": "Pages",
+      "icon": "wysiwyg",
+      "url": "/[slug]/",
+      "disable_url": false,
       "description": "Main website pages",
-      "_enabled_editors": ["visual", "data", "source"]
+      "_enabled_editors": [
+        "visual",
+        "data",
+        "source"
+      ],
+      "disable_add": false,
+      "disable_add_folder": false,
+      "disable_file_actions": false
     },
     "landing_pages": {
-      "path": "landing",
-      "url": "/landing/[slug]/",
-      "output": true,
-      "icon": "rocket_launch",
+      "path": "learn",
       "name": "Landing Pages",
+      "icon": "rocket_launch",
+      "url": "/learn/[slug]/",
+      "disable_url": false,
       "description": "Marketing and conversion landing pages",
-      "_enabled_editors": ["visual", "data", "source"],
+      "_enabled_editors": [
+        "visual",
+        "data",
+        "source"
+      ],
       "add_options": [
         {
           "name": "Lead Magnet Landing Page",
           "base_path": "landing/_template-lead-magnet.njk"
         }
-      ]
+      ],
+      "disable_add": false,
+      "disable_add_folder": false,
+      "disable_file_actions": false
     },
     "data": {
       "path": "_data",
-      "output": false,
-      "icon": "settings",
       "name": "Site Data",
-      "description": "Global site configuration and content"
+      "icon": "settings",
+      "disable_url": false,
+      "description": "Global site configuration and content",
+      "disable_add": false,
+      "disable_add_folder": false,
+      "disable_file_actions": false
     }
   },
+  "_inputs": {
+    "title": {
+      "type": "text",
+      "label": "Page Title",
+      "cascade": true
+    },
+    "description": {
+      "type": "textarea",
+      "label": "Meta Description",
+      "cascade": true
+    },
+    "hero_eyebrow": {
+      "type": "text",
+      "label": "Eyebrow Text",
+      "cascade": true
+    },
+    "hero_title_line1": {
+      "type": "text",
+      "label": "Title Line 1",
+      "cascade": true
+    },
+    "hero_title_line2": {
+      "type": "text",
+      "label": "Title Line 2",
+      "cascade": true
+    },
+    "hero_subtitle": {
+      "type": "textarea",
+      "label": "Subtitle",
+      "cascade": true
+    },
+    "hero_image": {
+      "type": "image",
+      "label": "Hero Image",
+      "cascade": true
+    },
+    "hero_cta_text": {
+      "type": "text",
+      "label": "Button Text",
+      "cascade": true
+    },
+    "show_trusted_by": {
+      "type": "switch",
+      "label": "Show Trusted By Section",
+      "cascade": true
+    },
+    "form_source": {
+      "type": "text",
+      "label": "Form Source (for tracking)",
+      "comment": "Identifier sent to GoHighLevel webhook",
+      "cascade": true
+    },
+    "last_updated": {
+      "type": "date",
+      "label": "Last Updated Date",
+      "cascade": true
+    },
+    "experts": {
+      "type": "array",
+      "label": "Featured Experts",
+      "cascade": true
+    },
+    "testimonials": {
+      "type": "array",
+      "label": "Testimonials",
+      "cascade": true
+    },
+    "faq_items": {
+      "type": "array",
+      "label": "FAQ Items",
+      "cascade": true
+    },
+    "course_days": {
+      "type": "array",
+      "label": "Course Content",
+      "cascade": true
+    },
+    "stats": {
+      "type": "array",
+      "label": "Statistics",
+      "cascade": true
+    },
+    "pain_points": {
+      "type": "array",
+      "label": "Pain Points",
+      "cascade": true
+    },
+    "quick_benefits": {
+      "type": "array",
+      "label": "Quick Benefits",
+      "cascade": true
+    },
+    "webhook_url": {
+      "type": "text",
+      "label": "Form Webhook URL",
+      "comment": "GoHighLevel webhook URL for form submissions",
+      "cascade": true
+    },
+    "calendar_url": {
+      "type": "text",
+      "label": "Calendar Embed URL",
+      "comment": "Booking calendar embed URL",
+      "cascade": true
+    },
+    "logo": {
+      "type": "object",
+      "label": "Site Logos",
+      "cascade": true
+    },
+    "contact_email": {
+      "type": "email",
+      "label": "Contact Email",
+      "cascade": true
+    },
+    "copyright_year": {
+      "type": "text",
+      "label": "Copyright Year",
+      "cascade": true
+    },
+    "problem_title": {
+      "type": "text",
+      "label": "Problem Section Title",
+      "cascade": true
+    },
+    "problem_intro": {
+      "type": "array",
+      "label": "Problem Introduction Lines",
+      "cascade": true
+    },
+    "problem_transition": {
+      "type": "text",
+      "label": "Problem Transition Text",
+      "cascade": true
+    },
+    "problem_points": {
+      "type": "array",
+      "label": "Problem Points",
+      "cascade": true
+    },
+    "problem_solution_intro": {
+      "type": "text",
+      "label": "Solution Introduction",
+      "cascade": true
+    },
+    "problem_solution": {
+      "type": "text",
+      "label": "Solution Text",
+      "cascade": true
+    },
+    "final_cta_title": {
+      "type": "text",
+      "label": "Final CTA Title",
+      "cascade": true
+    },
+    "final_cta_subtitle": {
+      "type": "text",
+      "label": "Final CTA Subtitle",
+      "cascade": true
+    },
+    "final_cta_button": {
+      "type": "text",
+      "label": "Final CTA Button Text",
+      "cascade": true
+    },
+    "audience_title": {
+      "type": "text",
+      "label": "Audience Section Title",
+      "cascade": true
+    },
+    "audience_points": {
+      "type": "array",
+      "label": "Audience Points",
+      "cascade": true
+    },
+    "trusted_experts": {
+      "type": "array",
+      "label": "Trusted Experts",
+      "cascade": true
+    },
+    "case_studies": {
+      "type": "array",
+      "label": "Case Studies",
+      "cascade": true
+    },
+    "hero_title_start": {
+      "type": "text",
+      "label": "Hero Title Start",
+      "cascade": true
+    },
+    "hero_title_highlight": {
+      "type": "text",
+      "label": "Hero Title Highlight (italic)",
+      "cascade": true
+    },
+    "hero_title_end": {
+      "type": "text",
+      "label": "Hero Title End",
+      "cascade": true
+    },
+    "hero_cta": {
+      "type": "text",
+      "label": "Hero CTA Button Text",
+      "cascade": true
+    },
+    "hero_video": {
+      "type": "text",
+      "label": "Hero Video Embed URL",
+      "cascade": true
+    },
+    "experts_title": {
+      "type": "text",
+      "label": "Experts Section Title",
+      "cascade": true
+    },
+    "stats_eyebrow": {
+      "type": "text",
+      "label": "Stats Eyebrow Text",
+      "cascade": true
+    },
+    "stats_title": {
+      "type": "text",
+      "label": "Stats Title",
+      "cascade": true
+    },
+    "stats_title_italic": {
+      "type": "text",
+      "label": "Stats Title (italic part)",
+      "cascade": true
+    },
+    "stats_subtitle": {
+      "type": "textarea",
+      "label": "Stats Subtitle",
+      "cascade": true
+    },
+    "pain_title": {
+      "type": "text",
+      "label": "Pain Points Title",
+      "cascade": true
+    },
+    "pain_title_italic": {
+      "type": "text",
+      "label": "Pain Points Title (italic part)",
+      "cascade": true
+    },
+    "pain_closing": {
+      "type": "text",
+      "label": "Pain Points Closing",
+      "cascade": true
+    },
+    "pain_closing_italic": {
+      "type": "text",
+      "label": "Pain Points Closing (italic part)",
+      "cascade": true
+    },
+    "calendar_title": {
+      "type": "text",
+      "label": "Calendar Section Title",
+      "cascade": true
+    },
+    "calendar_title_italic": {
+      "type": "text",
+      "label": "Calendar Title (italic part)",
+      "cascade": true
+    },
+    "calendar_subtitle": {
+      "type": "text",
+      "label": "Calendar Subtitle",
+      "cascade": true
+    },
+    "case_studies_title": {
+      "type": "text",
+      "label": "Case Studies Title",
+      "cascade": true
+    },
+    "case_studies_title_italic": {
+      "type": "text",
+      "label": "Case Studies Title (italic part)",
+      "cascade": true
+    },
+    "testimonials_title": {
+      "type": "text",
+      "label": "Testimonials Title",
+      "cascade": true
+    },
+    "testimonials_title_italic": {
+      "type": "text",
+      "label": "Testimonials Title (italic part)",
+      "cascade": true
+    },
+    "testimonials_eyebrow": {
+      "type": "text",
+      "label": "Testimonials Eyebrow",
+      "cascade": true
+    },
+    "about_title": {
+      "type": "text",
+      "label": "About Section Title",
+      "cascade": true
+    },
+    "about_title_italic": {
+      "type": "text",
+      "label": "About Title (italic part)",
+      "cascade": true
+    },
+    "about_image": {
+      "type": "image",
+      "label": "About Profile Image",
+      "cascade": true
+    },
+    "about_content": {
+      "type": "markdown",
+      "label": "About Content",
+      "cascade": true
+    },
+    "faq_title": {
+      "type": "text",
+      "label": "FAQ Title",
+      "cascade": true
+    },
+    "faq_title_italic": {
+      "type": "text",
+      "label": "FAQ Title (italic part)",
+      "cascade": true
+    },
+    "final_cta": {
+      "type": "text",
+      "label": "Final CTA Text",
+      "cascade": true
+    },
+    "final_cta_italic": {
+      "type": "text",
+      "label": "Final CTA (italic part)",
+      "cascade": true
+    },
+    "final_cta_note": {
+      "type": "text",
+      "label": "Final CTA Note",
+      "cascade": true
+    },
+    "trust_logos": {
+      "type": "array",
+      "label": "Trust Logos",
+      "cascade": true
+    },
+    "course_title": {
+      "type": "text",
+      "label": "Course Section Title",
+      "cascade": true
+    },
+    "course_subtitle": {
+      "type": "text",
+      "label": "Course Section Subtitle",
+      "cascade": true
+    },
+    "course_image": {
+      "type": "image",
+      "label": "Course Image",
+      "cascade": true
+    },
+    "trusted_by_title": {
+      "type": "text",
+      "label": "Trusted By Section Title",
+      "cascade": true
+    }
+  },
+  "_editables": {
+    "text": {
+      "allow_custom_markup": true,
+      "remove_custom_markup": false,
+      "bold": true,
+      "italic": true,
+      "link": true
+    },
+    "block": {
+      "allow_custom_markup": false,
+      "remove_custom_markup": false,
+      "bold": true,
+      "bulletedlist": true,
+      "format": "p h2 h3",
+      "image_size_attributes": true,
+      "italic": true,
+      "link": true,
+      "numberedlist": true
+    }
+  },
+  "base_url": "/",
   "data_config": {
     "site": {
       "path": "_data/site.json"
@@ -76,297 +451,16 @@
       "path": "_data/navigation.json"
     }
   },
-  "_inputs": {
-    "title": {
-      "type": "text",
-      "label": "Page Title"
-    },
-    "description": {
-      "type": "textarea",
-      "label": "Meta Description"
-    },
-    "hero_eyebrow": {
-      "type": "text",
-      "label": "Eyebrow Text"
-    },
-    "hero_title_line1": {
-      "type": "text",
-      "label": "Title Line 1"
-    },
-    "hero_title_line2": {
-      "type": "text",
-      "label": "Title Line 2"
-    },
-    "hero_subtitle": {
-      "type": "textarea",
-      "label": "Subtitle"
-    },
-    "hero_image": {
-      "type": "image",
-      "label": "Hero Image"
-    },
-    "hero_cta_text": {
-      "type": "text",
-      "label": "Button Text"
-    },
-    "show_trusted_by": {
-      "type": "switch",
-      "label": "Show Trusted By Section"
-    },
-    "form_source": {
-      "type": "text",
-      "label": "Form Source (for tracking)",
-      "comment": "Identifier sent to GoHighLevel webhook"
-    },
-    "last_updated": {
-      "type": "date",
-      "label": "Last Updated Date"
-    },
-    "experts": {
-      "type": "array",
-      "label": "Featured Experts"
-    },
-    "testimonials": {
-      "type": "array",
-      "label": "Testimonials"
-    },
-    "faq_items": {
-      "type": "array",
-      "label": "FAQ Items"
-    },
-    "course_days": {
-      "type": "array",
-      "label": "Course Content"
-    },
-    "stats": {
-      "type": "array",
-      "label": "Statistics"
-    },
-    "pain_points": {
-      "type": "array",
-      "label": "Pain Points"
-    },
-    "quick_benefits": {
-      "type": "array",
-      "label": "Quick Benefits"
-    },
-    "webhook_url": {
-      "type": "text",
-      "label": "Form Webhook URL",
-      "comment": "GoHighLevel webhook URL for form submissions"
-    },
-    "calendar_url": {
-      "type": "text",
-      "label": "Calendar Embed URL",
-      "comment": "Booking calendar embed URL"
-    },
-    "logo": {
-      "type": "object",
-      "label": "Site Logos"
-    },
-    "contact_email": {
-      "type": "email",
-      "label": "Contact Email"
-    },
-    "copyright_year": {
-      "type": "text",
-      "label": "Copyright Year"
-    },
-    "problem_title": {
-      "type": "text",
-      "label": "Problem Section Title"
-    },
-    "problem_intro": {
-      "type": "array",
-      "label": "Problem Introduction Lines"
-    },
-    "problem_transition": {
-      "type": "text",
-      "label": "Problem Transition Text"
-    },
-    "problem_points": {
-      "type": "array",
-      "label": "Problem Points"
-    },
-    "problem_solution_intro": {
-      "type": "text",
-      "label": "Solution Introduction"
-    },
-    "problem_solution": {
-      "type": "text",
-      "label": "Solution Text"
-    },
-    "final_cta_title": {
-      "type": "text",
-      "label": "Final CTA Title"
-    },
-    "final_cta_subtitle": {
-      "type": "text",
-      "label": "Final CTA Subtitle"
-    },
-    "final_cta_button": {
-      "type": "text",
-      "label": "Final CTA Button Text"
-    },
-    "audience_title": {
-      "type": "text",
-      "label": "Audience Section Title"
-    },
-    "audience_points": {
-      "type": "array",
-      "label": "Audience Points"
-    },
-    "trusted_experts": {
-      "type": "array",
-      "label": "Trusted Experts"
-    },
-    "case_studies": {
-      "type": "array",
-      "label": "Case Studies"
-    },
-    "hero_title_start": {
-      "type": "text",
-      "label": "Hero Title Start"
-    },
-    "hero_title_highlight": {
-      "type": "text",
-      "label": "Hero Title Highlight (italic)"
-    },
-    "hero_title_end": {
-      "type": "text",
-      "label": "Hero Title End"
-    },
-    "hero_cta": {
-      "type": "text",
-      "label": "Hero CTA Button Text"
-    },
-    "hero_video": {
-      "type": "text",
-      "label": "Hero Video Embed URL"
-    },
-    "experts_title": {
-      "type": "text",
-      "label": "Experts Section Title"
-    },
-    "stats_eyebrow": {
-      "type": "text",
-      "label": "Stats Eyebrow Text"
-    },
-    "stats_title": {
-      "type": "text",
-      "label": "Stats Title"
-    },
-    "stats_title_italic": {
-      "type": "text",
-      "label": "Stats Title (italic part)"
-    },
-    "stats_subtitle": {
-      "type": "textarea",
-      "label": "Stats Subtitle"
-    },
-    "pain_title": {
-      "type": "text",
-      "label": "Pain Points Title"
-    },
-    "pain_title_italic": {
-      "type": "text",
-      "label": "Pain Points Title (italic part)"
-    },
-    "pain_closing": {
-      "type": "text",
-      "label": "Pain Points Closing"
-    },
-    "pain_closing_italic": {
-      "type": "text",
-      "label": "Pain Points Closing (italic part)"
-    },
-    "calendar_title": {
-      "type": "text",
-      "label": "Calendar Section Title"
-    },
-    "calendar_title_italic": {
-      "type": "text",
-      "label": "Calendar Title (italic part)"
-    },
-    "calendar_subtitle": {
-      "type": "text",
-      "label": "Calendar Subtitle"
-    },
-    "case_studies_title": {
-      "type": "text",
-      "label": "Case Studies Title"
-    },
-    "case_studies_title_italic": {
-      "type": "text",
-      "label": "Case Studies Title (italic part)"
-    },
-    "testimonials_title": {
-      "type": "text",
-      "label": "Testimonials Title"
-    },
-    "testimonials_title_italic": {
-      "type": "text",
-      "label": "Testimonials Title (italic part)"
-    },
-    "testimonials_eyebrow": {
-      "type": "text",
-      "label": "Testimonials Eyebrow"
-    },
-    "about_title": {
-      "type": "text",
-      "label": "About Section Title"
-    },
-    "about_title_italic": {
-      "type": "text",
-      "label": "About Title (italic part)"
-    },
-    "about_image": {
-      "type": "image",
-      "label": "About Profile Image"
-    },
-    "about_content": {
-      "type": "markdown",
-      "label": "About Content"
-    },
-    "faq_title": {
-      "type": "text",
-      "label": "FAQ Title"
-    },
-    "faq_title_italic": {
-      "type": "text",
-      "label": "FAQ Title (italic part)"
-    },
-    "final_cta": {
-      "type": "text",
-      "label": "Final CTA Text"
-    },
-    "final_cta_italic": {
-      "type": "text",
-      "label": "Final CTA (italic part)"
-    },
-    "final_cta_note": {
-      "type": "text",
-      "label": "Final CTA Note"
-    },
-    "trust_logos": {
-      "type": "array",
-      "label": "Trust Logos"
-    },
-    "course_title": {
-      "type": "text",
-      "label": "Course Section Title"
-    },
-    "course_subtitle": {
-      "type": "text",
-      "label": "Course Section Subtitle"
-    },
-    "course_image": {
-      "type": "image",
-      "label": "Course Image"
-    },
-    "trusted_by_title": {
-      "type": "text",
-      "label": "Trusted By Section Title"
+  "timezone": "America/Toronto",
+  "output": "_site",
+  "_generator": {
+    "name": "eleventy",
+    "version": "2.0",
+    "metadata": {
+      "markdown": "markdown-it",
+      "markdown_options": {
+        "html": true
+      }
     }
   }
 }
