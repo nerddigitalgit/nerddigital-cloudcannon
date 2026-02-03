@@ -55,6 +55,14 @@
       "disable_add": false,
       "disable_add_folder": false,
       "disable_file_actions": false
+    },
+    "landing": {
+      "path": "landing",
+      "icon": "padding",
+      "disable_url": false,
+      "disable_add": false,
+      "disable_add_folder": false,
+      "disable_file_actions": false
     }
   },
   "_inputs": {
