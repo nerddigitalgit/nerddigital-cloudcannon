@@ -12,6 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title | default(site.title) }}</title>
   <meta name="description" content="{{ description | default(site.description) }}">
+  {% if noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
