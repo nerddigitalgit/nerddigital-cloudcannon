@@ -65,6 +65,13 @@ document.addEventListener('DOMContentLoaded', function() {
         formData.append('email', email);
         formData.append('source', source);
 
+        // Pass UTM parameters from URL to GHL
+        const urlParams = new URLSearchParams(window.location.search);
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(param => {
+          const value = urlParams.get(param);
+          if (value) formData.append(param, value);
+        });
+
         await fetch(WEBHOOK_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
