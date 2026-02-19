@@ -2,13 +2,14 @@
 layout: layouts/base.njk
 permalink: /about/
 title: "About - NerdDigital"
-description: "We build Trust Funnels for domain experts. Book a free audit — we'll show you exactly what's missing."
+description: "We build your complete Trust Funnel in 90 days — positioning, lead magnets, email, content, and testing. Book a free audit."
 
 # Hero Section
-hero_title_start: "We Build"
-hero_title_highlight: "Trust Funnels"
-hero_title_end: "for Domain Experts"
-hero_subtitle: "Book a free Trust Funnel audit — we'll identify exactly what's broken and map out your fix."
+hero_eyebrow: "Most marketing just teaches."
+hero_title_start: "We Build Your"
+hero_title_highlight: "Trust Funnel"
+hero_title_end: "in 90 Days"
+hero_subtitle: "Positioning. Lead magnets. Email. Content. Testing. One complete system — built for you."
 hero_cta: "BOOK YOUR FREE AUDIT"
 hero_video: "https://player.vimeo.com/video/1112535405?autoplay=0&muted=1&loop=1&controls=1&byline=0&title=0&portrait=0"
 
@@ -84,16 +85,26 @@ stats:
     description: "Experts helped build profitable marketing systems."
 
 # Pain Points Section
-pain_title: "The 5 Trust Mistakes"
-pain_title_italic: "keeping you stuck:"
-pain_points:
-  - "Pitching before trust — asking for the sale before building any relationship"
-  - "Generic positioning — sounding like every other expert in your space"
-  - "Forgettable lead magnets — giving away content people forget in 48 hours"
-  - "Fishing in the puddle — marketing only to the 3% who are ready to buy right now"
-  - "Building on hunches — spending months on assets you never tested"
-pain_closing: "If any of these sound familiar,"
-pain_closing_italic: "we built the fix."
+transform_title: "Here's What Changes"
+transform_title_italic: "in 90 Days:"
+remove_items:
+  - "Inconsistent leads"
+  - "Inconsistent sales"
+  - "Depending on referrals"
+  - "Generic positioning"
+  - "Charging too little"
+  - "Complicated marketing"
+  - "Constantly switching strategies"
+  - "40 hours/week on marketing"
+add_items:
+  - "Consistent lead flow"
+  - "Consistent sales"
+  - "Leads that come to you"
+  - "Premium positioning"
+  - "Premium prices"
+  - "One simple system"
+  - "One strategy that compounds"
+  - "4 hours/week on marketing"
 
 # Calendar Section
 calendar_title: "Book Your Free"
@@ -161,7 +172,7 @@ about_title_italic: "Why We Built This:"
 about_image: "/images/marcio-profile.jpg"
 about_content: |
   <p class="text-lg text-nerd-dark font-sans mb-6">We're NerdDigital — the marketing agency for domain experts.</p>
-  <p class="text-nerd-dark font-sans mb-6">Most marketing advice teaches experts to fish. We build the boat. Positioning, lead magnets, email sequences, content systems, and testing — designed as one integrated machine.</p>
+  <p class="text-nerd-dark font-sans mb-6">Most marketing just teaches. We build the whole system — positioning, lead magnets, email sequences, content, and testing — designed as one integrated machine.</p>
   <p class="text-nerd-dark font-sans mb-4"><strong>$3Mil+ in client sales generated.</strong> 15+ years marketing brands like BMW, Kettle & Fire, and dozens of established coaches and consultants.</p>
   <p class="text-nerd-dark font-sans mb-4"><strong>We build Trust Funnels.</strong> One system where every piece — positioning, lead magnet, email, content, testing — works together. Not five freelancers who don't talk to each other. One agency. One system.</p>
   <p class="text-nerd-dark font-sans mb-4"><strong>We serve domain experts.</strong> Coaches, consultants, and service providers who are great at their craft but have no marketing system. Going from zero to one.</p>
@@ -239,6 +250,9 @@ trust_logos:
   <div class="absolute inset-0 bg-nerd-light"></div>
   <div class="container mx-auto px-6 relative z-10">
     <div class="max-w-4xl mx-auto text-center">
+      {% if hero_eyebrow %}
+      <p class="text-base md:text-lg text-nerd-muted font-sans mb-4" data-editable="text" data-prop="hero_eyebrow">{{ hero_eyebrow }}</p>
+      {% endif %}
       <h1 class="text-[1.71rem] md:text-[2.57rem] text-nerd-dark mb-6 leading-[1.15] font-sans font-semibold">
         <span data-editable="text" data-prop="hero_title_start">{{ hero_title_start }}</span> <span class="font-serif italic whitespace-nowrap" data-editable="text" data-prop="hero_title_highlight">{{ hero_title_highlight }}</span> <span data-editable="text" data-prop="hero_title_end">{{ hero_title_end }}</span>
       </h1>
@@ -310,21 +324,44 @@ trust_logos:
           {% endfor %}
         </div>
 
-        {# Pain Points as Sub-section #}
-        <div class="pt-4">
-          <div class="max-w-2xl">
-            <h3 class="text-xl md:text-2xl text-nerd-dark mb-8 font-sans font-semibold"><span data-editable="text" data-prop="pain_title">{{ pain_title }}</span> <span class="font-serif italic" data-editable="text" data-prop="pain_title_italic">{{ pain_title_italic }}</span></h3>
-            <div class="space-y-4">
-              {% for point in pain_points %}
-              <div class="flex items-start gap-4">
-                <span class="text-nerd-pink text-lg mt-0.5">—</span>
-                <p class="text-base md:text-lg text-nerd-muted font-sans">{{ point }}</p>
-              </div>
-              {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{# Remove / Add Transformation Section #}
+<section class="py-16 md:py-24 bg-nerd-light relative">
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl text-nerd-dark font-sans font-semibold"><span data-editable="text" data-prop="transform_title">{{ transform_title }}</span> <span class="font-serif italic" data-editable="text" data-prop="transform_title_italic">{{ transform_title_italic }}</span></h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-lg border border-nerd-border p-8">
+          <p class="text-xs uppercase tracking-widest text-nerd-pink mb-6 font-mono">Remove</p>
+          <div class="space-y-4">
+            {% for item in remove_items %}
+            <div class="flex items-start gap-3">
+              <span class="text-nerd-pink text-lg mt-0.5 flex-shrink-0">&#10005;</span>
+              <p class="text-base text-nerd-muted font-sans line-through">{{ item }}</p>
             </div>
-            <p class="text-lg text-nerd-dark font-sans mt-8"><span data-editable="text" data-prop="pain_closing">{{ pain_closing }}</span> <span class="font-serif italic" data-editable="text" data-prop="pain_closing_italic">{{ pain_closing_italic }}</span></p>
+            {% endfor %}
           </div>
         </div>
+        <div class="bg-white rounded-lg border border-nerd-border p-8">
+          <p class="text-xs uppercase tracking-widest text-nerd-green mb-6 font-mono">Add</p>
+          <div class="space-y-4">
+            {% for item in add_items %}
+            <div class="flex items-start gap-3">
+              <span class="text-nerd-green text-lg mt-0.5 flex-shrink-0">&#10003;</span>
+              <p class="text-base text-nerd-dark font-sans font-medium">{{ item }}</p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <button class="btn-primary px-8 py-4 inline-flex items-center justify-center" style="font-size: 0.9375rem;" onclick="document.getElementById('calendar').scrollIntoView({behavior: 'smooth'})">BOOK YOUR FREE AUDIT</button>
       </div>
     </div>
   </div>
